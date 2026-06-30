@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jaylin Burnett is building a world with his vision and a system with his ethic. A Near Future feature.">
+  <title>Jaylin Burnett - A Near Future</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    .feature-hero {
+      min-height: 100svh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-top: var(--nav-h);
+      overflow: hidden;
+    }
+    .feature-hero-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+    }
+    .feature-hero-grad {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0) 25%, rgba(10,10,10,0.7) 65%, #0A0A0A 100%);
+    }
+    .feature-hero-content {
+      position: relative; z-index: 2;
+      max-width: var(--max-w);
+      margin: 0 auto; width: 100%;
+      padding: 0 var(--pad) 72px;
+    }
+    .feature-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px var(--pad) 96px;
+    }
+    .feature-intro {
+      font-family: var(--font-serif);
+      font-size: clamp(20px, 2.5vw, 26px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.55;
+      letter-spacing: -0.01em;
+      color: var(--fg-mid);
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 0.5px solid var(--fg-dim);
+    }
+    .feature-qa { margin-bottom: 56px; }
+    .feature-q {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--fg-mid);
+      margin-bottom: 18px;
+    }
+    .feature-a {
+      font-family: var(--font-serif);
+      font-size: clamp(22px, 2.8vw, 30px);
+      font-weight: 400;
+      line-height: 1.45;
+      letter-spacing: -0.01em;
+      color: var(--fg);
+    }
+    .feature-pullquote {
+      border-left: 1px solid var(--fg-dim);
+      padding: 8px 0 8px 32px;
+      margin: 56px 0;
+    }
+    .feature-pullquote p {
+      font-family: var(--font-serif);
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+    .feature-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px 0;
+      border-top: 0.5px solid var(--fg-dim);
+      margin-top: 80px;
+    }
+    .feature-nav a {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--fg-mid);
+      transition: color 0.2s;
+    }
+    .feature-nav a:hover { color: var(--fg); }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../assets/anf_wordmark.png" alt="A Near Future"></a>
+    <div class="nav-links">
+      <a href="../features.html">Features</a>
+      <a href="../articles.html">Articles</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html" class="nav-cta">Nominate</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-drawer">
+  <a href="../features.html">Features</a>
+  <a href="../articles.html">Articles</a>
+  <a href="../about.html">About</a>
+  <a href="../contact.html">Nominate</a>
+</div>
+
+<!-- HERO -->
+<section class="feature-hero">
+  <img class="feature-hero-img" src="../assets/jaylin_cover.jpg" alt="Jaylin Burnett">
+  <div class="feature-hero-grad"></div>
+  <div class="feature-hero-content">
+    <p class="will-appear" style="font-size:10px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--fg-mid);margin-bottom:20px;">Creatives &nbsp;·&nbsp; Metro Detroit</p>
+    <h1 class="will-appear d1" style="font-family:var(--font-serif);font-size:clamp(52px,9vw,120px);font-weight:700;line-height:0.91;letter-spacing:-0.03em;margin-bottom:24px;">A World<br>With His<br>Vision.</h1>
+    <p class="will-appear d2" style="font-size:13px;font-weight:400;letter-spacing:0.15em;text-transform:uppercase;color:var(--fg-mid);">Jaylin Burnett &nbsp;·&nbsp; Filmmaker &nbsp;·&nbsp; Metro Detroit</p>
+  </div>
+</section>
+
+<!-- BODY -->
+<article class="feature-body">
+
+  <p class="feature-intro will-appear">Jaylin Burnett didn't pick up a camera because it was cool. He picked it up because it was the first thing that let him say exactly what he needed to say. Now he's building a world with his vision and a system with his ethic, one frame at a time.</p>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">Who are you, and what are you building?</p>
+    <p class="feature-a">"My name is Jaylin Burnett. I'm building a world with my vision and a system with my ethic."</p>
+  </div>
+
+  <div class="feature-pullquote will-appear">
+    <p>"I'm building a world with my vision and a system with my ethic."</p>
+  </div>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">What was the moment you decided to go for it?</p>
+    <p class="feature-a">"I remember this day super vividly. It was when I was in high school and I found something that I can finally express my feelings and vision the way I wanted, which was through a camera."</p>
+  </div>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">What does Detroit mean to your work?</p>
+    <p class="feature-a">"Detroit is one of, if not the most influential cities in the world in my opinion. The history of segregation, art, music, and culture. Detroit is a lowkey artistic environment which always makes me try and think outside the box."</p>
+  </div>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">What do people your age get wrong about what you do?</p>
+    <p class="feature-a">"People my age don't see the art in filmmaking and photography. I feel it's because we grew up in an age where everyone can take video and pictures on a phone just to capture a memory, not to create art."</p>
+  </div>
+
+  <div class="feature-pullquote will-appear">
+    <p>"Everyone can take a picture. Not everyone can create art."</p>
+  </div>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">What does the near future look like for you?</p>
+    <p class="feature-a">"The end goal is getting awarded a Grammy and being known as a true visionary."</p>
+  </div>
+
+  <div class="feature-nav will-appear">
+    <a href="myles-davis.html">&larr; Previous Feature</a>
+    <a href="javontae-anderson.html">Next Feature &rarr;</a>
+  </div>
+
+</article>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-logo"><img src="../assets/anf_wordmark.png" alt="A Near Future"></div>
+      <p class="footer-tagline">The next generation of leaders, builders, and visionaries.</p>
+    </div>
+    <div>
+      <p class="footer-col-title">Navigate</p>
+      <ul class="footer-links">
+        <li><a href="../features.html">Features</a></li>
+        <li><a href="../articles.html">Articles</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Nominate</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">More Features</p>
+      <ul class="footer-links">
+        <li><a href="myles-davis.html">Myles Davis</a></li>
+        <li><a href="javontae-anderson.html">Javontae Anderson</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2026 A Near Future. All rights reserved.</p>
+    <p class="footer-copy">Detroit, Michigan</p>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

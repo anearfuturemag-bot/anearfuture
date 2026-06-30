@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nominate  -  A Near Future. Know someone who deserves to be seen? Tell us about them.">
+  <title>Nominate  -  A Near Future</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 96px;
+      align-items: start;
+      padding: calc(var(--nav-h) + 80px) var(--pad) 96px;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .contact-sidebar {}
+    .contact-criteria {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-top: 40px;
+    }
+    .criteria-item {
+      border-top: 0.5px solid var(--fg-dim);
+      padding-top: 20px;
+    }
+    .criteria-label {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--fg-mid);
+      margin-bottom: 8px;
+    }
+    .criteria-text {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--fg-mid);
+    }
+    @media (max-width: 768px) {
+      .contact-layout { grid-template-columns: 1fr; gap: 48px; padding-top: calc(var(--nav-h) + 48px); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════ -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="assets/anf_wordmark.png" alt="A Near Future"></a>
+    <div class="nav-links">
+      <a href="features.html">Features</a>
+      <a href="articles.html">Articles</a>
+
+      <a href="about.html">About</a>
+      <a href="contact.html" class="nav-cta">Nominate</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-drawer">
+  <a href="features.html">Features</a>
+  <a href="articles.html">Articles</a>
+  <a href="over-the-table.html">Over The Table</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Nominate</a>
+</div>
+
+<!-- ══ CONTACT LAYOUT ════════════════════════ -->
+<div class="contact-layout">
+
+  <!-- SIDEBAR -->
+  <div>
+    <p class="will-appear" style="font-size:9px;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:var(--fg-mid);margin-bottom:20px;">A Near Future</p>
+    <h1 class="will-appear d1" style="font-family:var(--font-serif);font-size:clamp(44px,7vw,86px);font-weight:700;line-height:0.91;letter-spacing:-0.03em;margin-bottom:28px;">Nominate.</h1>
+    <p class="will-appear d2" style="font-size:15px;font-weight:300;line-height:1.75;color:var(--fg-mid);max-width:340px;">Know a young person who deserves to be seen? Tell us who they are and why they belong in a near future.</p>
+
+    <div class="contact-criteria will-appear d3">
+      <div class="criteria-item">
+        <p class="criteria-label">Who we feature</p>
+        <p class="criteria-text">Entrepreneurs, creatives, artists, musicians, scientists, builders, and community leaders ages 13 to 25.</p>
+      </div>
+      <div class="criteria-item">
+        <p class="criteria-label">Where we look</p>
+        <p class="criteria-text">Detroit and Metro Detroit first  -  but we cover the next generation wherever they're building.</p>
+      </div>
+      <div class="criteria-item">
+        <p class="criteria-label">What we look for</p>
+        <p class="criteria-text">Real work. Real stories. People who are already building  -  not waiting for permission. If they're doing it before anyone is watching, we want to tell that story.</p>
+      </div>
+      <div class="criteria-item">
+        <p class="criteria-label">What happens next</p>
+        <p class="criteria-text">We review every submission. If your nominee is selected, we'll reach out directly to set up an interview and feature.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div class="will-appear d2">
+    <form class="nominate-form" novalidate>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label" for="your-name">Your Name</label>
+          <input class="form-input" type="text" id="your-name" name="your_name" placeholder="First Last" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="your-email">Your Email</label>
+          <input class="form-input" type="email" id="your-email" name="your_email" placeholder="you@email.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="nom-name">Nominee's Name</label>
+          <input class="form-input" type="text" id="nom-name" name="nom_name" placeholder="First Last" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="nom-age">Nominee's Age</label>
+          <input class="form-input" type="text" id="nom-age" name="nom_age" placeholder="Age or Range">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="nom-location">City / Location</label>
+          <input class="form-input" type="text" id="nom-location" name="nom_location" placeholder="Detroit, MI">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="nom-category">Category</label>
+          <select class="form-select" id="nom-category" name="nom_category">
+            <option value="" disabled selected>Select one</option>
+            <option value="entrepreneur">Entrepreneur</option>
+            <option value="creative">Creative</option>
+            <option value="artist">Artist</option>
+            <option value="music">Music</option>
+            <option value="science">Science &amp; Technology</option>
+            <option value="builder">Builder / Founder</option>
+            <option value="community">Community Leader</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label class="form-label" for="nom-what">What are they building or doing?</label>
+          <input class="form-input" type="text" id="nom-what" name="nom_what" placeholder="Brief description of their work or project" required>
+        </div>
+        <div class="form-group full">
+          <label class="form-label" for="nom-why">Why do they deserve a feature?</label>
+          <textarea class="form-textarea" id="nom-why" name="nom_why" placeholder="Tell us what makes them stand out. What have you seen them build? What's the story we should tell?" required></textarea>
+        </div>
+        <div class="form-group full">
+          <label class="form-label" for="nom-contact">Nominee's Instagram or Contact (optional)</label>
+          <input class="form-input" type="text" id="nom-contact" name="nom_contact" placeholder="@handle or email">
+        </div>
+        <div class="form-group full">
+          <button type="submit" class="form-btn">Submit Nomination</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ══ FOOTER ════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-logo"><img src="assets/anf_wordmark.png" alt="A Near Future"></div>
+      <p class="footer-tagline">The next generation of leaders, builders, and visionaries  -  a near future.</p>
+    </div>
+    <div>
+      <p class="footer-col-title">Navigate</p>
+      <ul class="footer-links">
+        <li><a href="features.html">Features</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="over-the-table.html">Over The Table</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Nominate</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Categories</p>
+      <ul class="footer-links">
+        <li><a href="features.html#entrepreneurs">Entrepreneurs</a></li>
+        <li><a href="features.html#creatives">Creatives</a></li>
+        <li><a href="features.html#builders">Builders &amp; Founders</a></li>
+        <li><a href="features.html#community">Community</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2026 A Near Future. All rights reserved.</p>
+    <p class="footer-copy">Detroit, Michigan</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

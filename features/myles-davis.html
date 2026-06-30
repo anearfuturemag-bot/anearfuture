@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Myles Davis is 18 years old, building Davis Enterprise from Detroit. A Near Future feature.">
+  <title>Myles Davis - A Near Future</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    .feature-hero {
+      min-height: 100svh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-top: var(--nav-h);
+      overflow: hidden;
+    }
+    .feature-hero-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: 50% 25%;
+    }
+    .feature-hero-grad {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(10,10,10,0.1) 0%, rgba(10,10,10,0) 25%, rgba(10,10,10,0.7) 65%, #0A0A0A 100%);
+    }
+    .feature-hero-content {
+      position: relative; z-index: 2;
+      max-width: var(--max-w);
+      margin: 0 auto; width: 100%;
+      padding: 0 var(--pad) 72px;
+    }
+    .feature-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px var(--pad) 96px;
+    }
+    .feature-intro {
+      font-family: var(--font-serif);
+      font-size: clamp(20px, 2.5vw, 26px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.55;
+      letter-spacing: -0.01em;
+      color: var(--fg-mid);
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 0.5px solid var(--fg-dim);
+    }
+    .feature-qa { margin-bottom: 56px; }
+    .feature-q {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--fg-mid);
+      margin-bottom: 18px;
+    }
+    .feature-a {
+      font-family: var(--font-serif);
+      font-size: clamp(22px, 2.8vw, 30px);
+      font-weight: 400;
+      line-height: 1.45;
+      letter-spacing: -0.01em;
+      color: var(--fg);
+    }
+    .feature-pullquote {
+      border-left: 1px solid var(--fg-dim);
+      padding: 8px 0 8px 32px;
+      margin: 56px 0;
+    }
+    .feature-pullquote p {
+      font-family: var(--font-serif);
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+    .feature-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px 0;
+      border-top: 0.5px solid var(--fg-dim);
+      margin-top: 80px;
+    }
+    .feature-nav a {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--fg-mid);
+      transition: color 0.2s;
+    }
+    .feature-nav a:hover { color: var(--fg); }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../assets/anf_wordmark.png" alt="A Near Future"></a>
+    <div class="nav-links">
+      <a href="../features.html">Features</a>
+      <a href="../articles.html">Articles</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html" class="nav-cta">Nominate</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-drawer">
+  <a href="../features.html">Features</a>
+  <a href="../articles.html">Articles</a>
+  <a href="../about.html">About</a>
+  <a href="../contact.html">Nominate</a>
+</div>
+
+<!-- HERO -->
+<section class="feature-hero">
+  <img class="feature-hero-img" src="../assets/myles_cover.jpg" alt="Myles Davis">
+  <div class="feature-hero-grad"></div>
+  <div class="feature-hero-content">
+    <p class="will-appear" style="font-size:10px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--fg-mid);margin-bottom:20px;">Entrepreneurs &nbsp;·&nbsp; Detroit</p>
+    <h1 class="will-appear d1" style="font-family:var(--font-serif);font-size:clamp(52px,9vw,120px);font-weight:700;line-height:0.91;letter-spacing:-0.03em;margin-bottom:24px;">The Long<br>Game.</h1>
+    <p class="will-appear d2" style="font-size:13px;font-weight:400;letter-spacing:0.15em;text-transform:uppercase;color:var(--fg-mid);">Myles Davis &nbsp;·&nbsp; Age 18 &nbsp;·&nbsp; Metro Detroit</p>
+  </div>
+</section>
+
+<!-- BODY -->
+<article class="feature-body">
+
+  <p class="feature-intro will-appear">Myles Davis is 18 years old and already playing a game most people his age haven't even started thinking about. He's building Davis Enterprise, studying the markets, running a detailing company, and doing it all without waiting for anyone to hand him the roadmap.</p>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">Who are you, and what are you building?</p>
+    <p class="feature-a">"My name is Myles Davis. I'm an 18 year old entrepreneur from Detroit with a passion for building value, investing, and creating long-term wealth. Right now, I'm growing a detailing company and laying the foundation for my future holding company, Davis Enterprise, focused on investments, real estate, and business ownership. Beyond entrepreneurship, I'm committed to learning everything I can about real estate, investing, and the stock market. I'm also part of the 4D Traders Institute market education program because I believe ownership is one of the greatest tools for creating opportunity, not just for myself, but for those around me too. I am also a firm believer in building strong relationships and I've learned that the skill of networking can open just as many doors as hard work. Everything I'm building now is meant to become part of something much bigger."</p>
+  </div>
+
+  <div class="feature-pullquote will-appear">
+    <p>"Everything I'm building now is meant to become part of something much bigger."</p>
+  </div>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">What was the moment you decided to go for it?</p>
+    <p class="feature-a">"When I was 16, I made one of the biggest decisions of my life by walking away from basketball. For years, basketball was a major part of who I was, but I realized my future was pulling me in a different direction. Instead of chasing one dream, I got obsessed with building something of my own. I immersed myself in entrepreneurship, innovation, and personal development, and I haven't looked back. Every move I make from here is another step toward the life I want. That same mindset carries with me in every aspect of my life, whether staying consistent in the gym, learning new life skills, or surrounding myself around people who challenge me to grow."</p>
+  </div>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">What does Detroit mean to your work?</p>
+    <p class="feature-a">"Detroit is where my mindset was shaped and where I learned the importance of resilience. As a young man from the city, I have seen people try to place limits on what's possible for us, but I've never accepted those limits. I want my story to reflect positively on my roots and show other young people that it's possible to build something extraordinary from right here."</p>
+  </div>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">What do people get wrong about entrepreneurship?</p>
+    <p class="feature-a">"A lot of people see entrepreneurship as fast money, social media, or just being your own boss. They don't see the sacrifices, the constant learning, or the patience it takes to build something meaningful. For me, it's never been about chasing quick success. It's about acquiring skills, owning assets, making smart investments, and building businesses that will still be valuable decades from now. I'm focused on playing the long game."</p>
+  </div>
+
+  <div class="feature-pullquote will-appear">
+    <p>"It's never been about chasing quick success. I'm focused on playing the long game."</p>
+  </div>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">What does the near future look like for you?</p>
+    <p class="feature-a">"The near future is all about expansion and education. This fall I'll be attending university while also being a real estate intern and working toward gaining hands-on construction experience because I want to understand every side of the industry. I'm also looking forward to launching more ventures under Davis Enterprise, including future businesses, brands, and community work. The end goal for me is freedom, prosperity, and earning a place on the Forbes list."</p>
+  </div>
+
+  <div class="feature-nav will-appear">
+    <a href="../features.html">&larr; All Features</a>
+    <a href="jaylin-burnett.html">Next Feature &rarr;</a>
+  </div>
+
+</article>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-logo"><img src="../assets/anf_wordmark.png" alt="A Near Future"></div>
+      <p class="footer-tagline">The next generation of leaders, builders, and visionaries.</p>
+    </div>
+    <div>
+      <p class="footer-col-title">Navigate</p>
+      <ul class="footer-links">
+        <li><a href="../features.html">Features</a></li>
+        <li><a href="../articles.html">Articles</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Nominate</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">More Features</p>
+      <ul class="footer-links">
+        <li><a href="jaylin-burnett.html">Jaylin Burnett</a></li>
+        <li><a href="javontae-anderson.html">Javontae Anderson</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2026 A Near Future. All rights reserved.</p>
+    <p class="footer-copy">Detroit, Michigan</p>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

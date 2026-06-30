@@ -1,0 +1,24 @@
+Drop the following files into this /assets/ folder:
+
+LOGOS (required on every page)
+  anf_wordmark.png       — aNEARFUTURE horizontal wordmark
+  anf_logo_mark.png      — aNF stacked monogram
+
+FEATURE PHOTOS (required for features + podcast pages)
+  myles_cover.jpg        — Myles Davis portrait (restaurant photo)
+  jaylin_cover.jpg       — Jaylin Burnett portrait (B&W dramatic)
+  javontae_cover.jpg     — Javontae Anderson portrait (graduation photo)
+
+HOMEPAGE HERO (required for homepage)
+  hero_main.jpg          — Your main hero image (full bleed, at least 1920x1080px)
+                           Recommended: high contrast portrait or event photo
+
+OPTIONAL
+  donald_founder.jpg     — Your photo for the About page founder note
+  ott_cover.jpg          — Over The Table podcast cover art (1:1 square)
+
+NOTES
+  - All images will scale automatically
+  - If a photo is missing, the site will show a dark placeholder
+  - Wordmark and logo mark should be the PNG files with transparent backgrounds
+  - Apply brightness(0) invert(1) filter is already in the CSS — black logos become white automatically

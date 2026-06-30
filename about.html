@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About A Near Future  -  Detroit-based digital magazine spotlighting the next generation of young builders, creatives, and leaders.">
+  <title>About  -  A Near Future</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .about-intro {
+      padding: calc(var(--nav-h) + 80px) var(--pad) 96px;
+      border-bottom: 0.5px solid var(--fg-dim);
+    }
+    .about-intro-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .founder-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      padding: 80px 0;
+    }
+    .founder-img-wrap {
+      aspect-ratio: 4/5;
+      background: #111;
+      overflow: hidden;
+    }
+    .founder-img-wrap img { width:100%; height:100%; object-fit:cover; }
+    .nonprofit-strip {
+      background: var(--fg-faint);
+      border: 0.5px solid var(--fg-dim);
+      padding: 64px var(--pad);
+      margin: 80px 0;
+    }
+    @media (max-width: 768px) {
+      .founder-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════ -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="assets/anf_wordmark.png" alt="A Near Future"></a>
+    <div class="nav-links">
+      <a href="features.html">Features</a>
+      <a href="articles.html">Articles</a>
+
+      <a href="about.html">About</a>
+      <a href="contact.html" class="nav-cta">Nominate</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-drawer">
+  <a href="features.html">Features</a>
+  <a href="articles.html">Articles</a>
+  <a href="over-the-table.html">Over The Table</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Nominate</a>
+</div>
+
+<!-- ══ OPENING STATEMENT ═════════════════════ -->
+<section class="about-intro">
+  <div class="about-intro-inner">
+    <p class="page-hd-eyebrow will-appear" style="padding-top:0;">A Near Future &nbsp;·&nbsp; Detroit</p>
+    <h1 class="will-appear d1" style="font-family:var(--font-serif);font-size:clamp(48px,8vw,104px);font-weight:700;line-height:0.91;letter-spacing:-0.03em;margin:20px 0 56px;">About.</h1>
+    <p class="about-statement will-appear d2">"A Near Future isn't just about showcasing creativity, it's about impacting the future. A future that's already very near."</p>
+    <div style="width:56px;height:0.5px;background:var(--fg-dim);margin:48px 0;" class="will-appear d3"></div>
+    <div class="about-body will-appear d4">
+      <p>A Near Future is a Detroit-based digital magazine and media platform dedicated to spotlighting young people who are building  -  entrepreneurs, creatives, artists, musicians, scientists, and community leaders who are creating before the world gives them permission to.</p>
+      <p>We believe the stories of young builders deserve the same editorial weight and design quality as the publications that have historically overlooked them. Every feature, article, and podcast episode is built to reflect the seriousness of what these young people are doing.</p>
+      <p>A Near Future is not a social media page with a logo. It is a publication  -  with editorial standards, a visual identity, and a commitment to telling these stories with the depth they deserve.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MISSION ════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section-hd will-appear">
+      <h2 class="section-hd-title">Our Mission</h2>
+    </div>
+    <div class="grid-3 will-appear">
+      <div class="mission-col">
+        <div class="mission-num">01</div>
+        <h3 class="mission-title">Spotlight the Unseen</h3>
+        <p class="mission-desc">Find and feature young people who are building something real  -  before the mainstream notices. Be the publication that gets there first and tells the story right.</p>
+      </div>
+      <div class="mission-col">
+        <div class="mission-num">02</div>
+        <h3 class="mission-title">Elevate the Standard</h3>
+        <p class="mission-desc">Every piece of content  -  from the photography to the copywriting to the design  -  should reflect the quality of the people we cover. No shortcuts. High standard, always.</p>
+      </div>
+      <div class="mission-col">
+        <div class="mission-num">03</div>
+        <h3 class="mission-title">Build Community</h3>
+        <p class="mission-desc">Connect young builders across Detroit and beyond. Create a network of young people who find each other through this platform and build together because of it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOUNDER NOTE ═══════════════════════════ -->
+<section class="section" style="border-top:0.5px solid var(--fg-dim);">
+  <div class="container">
+    <div class="founder-grid">
+      <div class="founder-img-wrap will-appear">
+        <!-- Replace with your photo: assets/donald_founder.jpg -->
+        <div class="ph ph-grad-2" style="width:100%;height:100%;display:flex;align-items:flex-end;padding:28px;">
+          <span style="font-family:var(--font-serif);font-size:18px;font-style:italic;color:rgba(245,243,238,0.25);">Donald Williams Jr.</span>
+        </div>
+      </div>
+      <div class="will-appear d1">
+        <p style="font-size:9px;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:var(--fg-mid);margin-bottom:28px;">Founder's Note</p>
+        <h2 style="font-family:var(--font-serif);font-size:clamp(24px,3.5vw,38px);font-weight:400;font-style:italic;line-height:1.2;letter-spacing:-0.01em;margin-bottom:32px;">"I built A Near Future because I wanted to see the people around me reflected in something that took them seriously."</h2>
+        <div style="width:40px;height:0.5px;background:var(--fg-dim);margin-bottom:28px;"></div>
+        <div class="about-body" style="font-size:14px;">
+          <p>Growing up in Detroit, I saw extraordinary young people doing extraordinary things with no spotlight on them. No platform treating their work with the weight it deserved. I started A Near Future to change that.</p>
+          <p>This isn't a side project. This is a publication. And we're going to build it the same way we ask the people we feature to build  -  with intention, with patience, and with a near future in mind.</p>
+          <p>Every story we tell is a story that deserves to be told. Every person we feature is someone who earned it. That standard doesn't change.</p>
+        </div>
+        <div style="margin-top:36px;">
+          <p style="font-family:var(--font-serif);font-size:18px;font-weight:400;font-style:italic;margin-bottom:4px;">Donald Williams Jr.</p>
+          <p style="font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--fg-mid);">Founder &amp; Editor, A Near Future</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ NONPROFIT ARM ══════════════════════════ -->
+<div class="container">
+  <div class="nonprofit-strip will-appear">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;max-width:900px;margin:0 auto;">
+      <div>
+        <p style="font-size:9px;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:var(--fg-mid);margin-bottom:20px;">Nonprofit Arm</p>
+        <h2 style="font-family:var(--font-serif);font-size:clamp(26px,4vw,44px);font-weight:400;line-height:1.1;letter-spacing:-0.02em;margin-bottom:20px;">A Near Future Foundation</h2>
+        <div style="width:36px;height:0.5px;background:var(--fg-dim);margin-bottom:20px;"></div>
+        <p style="font-size:13px;font-weight:300;line-height:1.7;color:var(--fg-mid);">The nonprofit arm of A Near Future supports young builders directly  -  through grants, mentorship programming, and educational resources designed to remove the barriers between young people and their near futures.</p>
+      </div>
+      <div>
+        <p style="font-size:13px;font-weight:300;line-height:1.75;color:var(--fg-mid);margin-bottom:28px;">We partner with Detroit-area organizations, businesses, and foundations to connect emerging leaders with the tools, networks, and funding they need to go from idea to impact.</p>
+        <a href="contact.html" style="font-size:10px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;border-bottom:1px solid var(--fg);padding-bottom:3px;">Get Involved</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FOOTER ════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-logo"><img src="assets/anf_wordmark.png" alt="A Near Future"></div>
+      <p class="footer-tagline">The next generation of leaders, builders, and visionaries  -  a near future.</p>
+    </div>
+    <div>
+      <p class="footer-col-title">Navigate</p>
+      <ul class="footer-links">
+        <li><a href="features.html">Features</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="over-the-table.html">Over The Table</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Nominate</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Categories</p>
+      <ul class="footer-links">
+        <li><a href="features.html#entrepreneurs">Entrepreneurs</a></li>
+        <li><a href="features.html#creatives">Creatives</a></li>
+        <li><a href="features.html#builders">Builders &amp; Founders</a></li>
+        <li><a href="features.html#community">Community</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2026 A Near Future. All rights reserved.</p>
+    <p class="footer-copy">Detroit, Michigan</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

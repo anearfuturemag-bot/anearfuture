@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jaylen Burton is the founder of Let's Gather nonprofit and Jay's International Holdings, building a movement for Detroit youth through community events and entrepreneurship.">
+  <title>Jaylen Burton - A Near Future</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    .feature-hero {
+      min-height: 100svh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-top: var(--nav-h);
+      overflow: hidden;
+    }
+    .feature-hero-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+    }
+    .feature-hero-grad {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(10,10,10,0.1) 0%, rgba(10,10,10,0) 25%, rgba(10,10,10,0.7) 65%, #0A0A0A 100%);
+    }
+    .feature-hero-content {
+      position: relative; z-index: 2;
+      max-width: var(--max-w);
+      margin: 0 auto; width: 100%;
+      padding: 0 var(--pad) 72px;
+    }
+    .feature-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px var(--pad) 96px;
+    }
+    .feature-intro {
+      font-family: var(--font-serif);
+      font-size: clamp(20px, 2.5vw, 26px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.55;
+      letter-spacing: -0.01em;
+      color: var(--fg-mid);
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 0.5px solid var(--fg-dim);
+    }
+    .feature-qa { margin-bottom: 56px; }
+    .feature-q {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--fg-mid);
+      margin-bottom: 18px;
+    }
+    .feature-a {
+      font-family: var(--font-serif);
+      font-size: clamp(22px, 2.8vw, 30px);
+      font-weight: 400;
+      line-height: 1.45;
+      letter-spacing: -0.01em;
+      color: var(--fg);
+    }
+    .feature-pullquote {
+      border-left: 1px solid var(--fg-dim);
+      padding: 8px 0 8px 32px;
+      margin: 56px 0;
+    }
+    .feature-pullquote p {
+      font-family: var(--font-serif);
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+    .feature-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px 0;
+      border-top: 0.5px solid var(--fg-dim);
+      margin-top: 80px;
+    }
+    .feature-nav a {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--fg-mid);
+      transition: color 0.2s;
+    }
+    .feature-nav a:hover { color: var(--fg); }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../assets/anf_wordmark.png" alt="A Near Future"></a>
+    <div class="nav-links">
+      <a href="../features.html">Features</a>
+      <a href="../articles.html">Articles</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html" class="nav-cta">Nominate</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-drawer">
+  <a href="../features.html">Features</a>
+  <a href="../articles.html">Articles</a>
+  <a href="../about.html">About</a>
+  <a href="../contact.html">Nominate</a>
+</div>
+
+<!-- HERO -->
+<section class="feature-hero">
+  <img class="feature-hero-img" src="../assets/jaylen_cover.jpg" alt="Jaylen Burton at a Let's Gather community event">
+  <div class="feature-hero-grad"></div>
+  <div class="feature-hero-content">
+    <p class="will-appear" style="font-size:10px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--fg-mid);margin-bottom:20px;">Community &nbsp;·&nbsp; Detroit &nbsp;·&nbsp; Youth</p>
+    <h1 class="will-appear d1" style="font-family:var(--font-serif);font-size:clamp(52px,9vw,120px);font-weight:700;line-height:0.91;letter-spacing:-0.03em;margin-bottom:24px;">Show Up<br>Anyway.</h1>
+    <p class="will-appear d2" style="font-size:13px;font-weight:400;letter-spacing:0.15em;text-transform:uppercase;color:var(--fg-mid);">Jaylen Burton &nbsp;·&nbsp; Detroit &nbsp;·&nbsp; Let's Gather / Jay's International Holdings</p>
+  </div>
+</section>
+
+<!-- BODY -->
+<article class="feature-body">
+
+  <p class="feature-intro will-appear">Jaylen Burton threw his first community event and nobody came. Not one person. He set up anyway, handed out hygiene kits and food to nobody, went home, and came back. That single moment of staying when most people would have quit is the whole story of who he is.</p>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">Who are you, and what are you building?</p>
+    <p class="feature-a">"I am Jaylen, Jay, Burton. Founder of Let's Gather nonprofit and Jay's International Holdings. I am building a movement and a foundation for the youth to look up to. Through doing community events for low income families and events that bring young entrepreneurs together to connect and build. I do this to show the youth that any dream they have, it's possible to make it a reality."</p>
+  </div>
+
+  <div class="feature-pullquote will-appear">
+    <p>"I do this to show the youth that any dream they have, it's possible to make it a reality."</p>
+  </div>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">What was the moment you decided to go for it?</p>
+    <p class="feature-a">"The moment I decided to actually go for it was summer of 2025, when I did my first ever community event. The event was just hygiene kits and food for the community. With my very first event most would have given up right then and there, because not one person showed up. Some would say I felt discouraged. However I never gave up, and now I am fortunate to say I've done events where I've run out of everything. Basketballs, footballs, hygiene kits, food. Everything."</p>
+  </div>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">What does Detroit mean to your work?</p>
+    <p class="feature-a">"Detroit is home. A place where I have failed plenty of times, taken many losses. However Detroit has also shown me I've never taken a loss. Every loss I've taken is a lesson. Detroit empowers me to make a difference in our community. Seeing the young kids run around, and some going down the wrong path, gives me my purpose to show them what is possible when you stay grinded, stay silent, stay humble."</p>
+  </div>
+
+  <div class="feature-pullquote will-appear">
+    <p>"Every loss I've taken is a lesson."</p>
+  </div>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">What do you want people to understand about entrepreneurship that they get wrong?</p>
+    <p class="feature-a">"People see being an entrepreneur as a get rich quick scheme, that's why a lot of people give up. People don't understand that no one that's successful got successful overnight. Or they try to rush the process. A wise person once told me, slow and steady wins the race, and that's always stuck with me. It took me multiple events to have my first event that felt like a good turnout. It took months for me to understand the way stocks and certain investments work. It all comes with strategizing, manifesting, and actually putting in the work."</p>
+  </div>
+
+  <div class="feature-pullquote will-appear">
+    <p>"Slow and steady wins the race."</p>
+  </div>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">What's coming next?</p>
+    <p class="feature-a">"In September I will be having an entrepreneurship program through the Boys and Girls Club of Greater Detroit, reaching out to bring youth from all the Boys and Girls Club locations in Detroit to gather with us at the Hub. The young will get to learn the game from young entrepreneurs that aren't too far from their own age. Show them the mistakes we made, and how to grow, start, and thrive in their own business."</p>
+  </div>
+
+  <div class="feature-nav">
+    <a href="javontae-anderson.html">&larr; Prev</a>
+    <a href="../features.html">All Features</a>
+    <a href="myles-davis.html">Next &rarr;</a>
+  </div>
+
+</article>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-logo"><img src="../assets/anf_wordmark.png" alt="A Near Future"></div>
+      <p class="footer-tagline">The next generation of leaders, builders, and visionaries  -  a near future.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

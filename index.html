@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A Near Future  -  Digital magazine spotlighting the next generation of entrepreneurs, creatives, artists, and builders from Detroit and beyond.">
+  <title>A Near Future</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* ── HOME-ONLY STYLES ── */
+    .hero-scroll-cue {
+      position: absolute;
+      bottom: 36px; left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      z-index: 3;
+      opacity: 0.35;
+    }
+    .scroll-line {
+      width: 0.5px;
+      height: 48px;
+      background: var(--fg);
+      animation: scrollDrop 2s ease-in-out infinite;
+    }
+    @keyframes scrollDrop {
+      0%, 100% { transform: scaleY(0); transform-origin: top; }
+      40%       { transform: scaleY(1); transform-origin: top; }
+      60%       { transform: scaleY(1); transform-origin: bottom; }
+      100%      { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    .editorial-strip {
+      display: grid;
+      grid-template-columns: 1fr 0.5px 1fr 0.5px 1fr;
+      gap: 0;
+      border-top: 0.5px solid var(--fg-dim);
+      border-bottom: 0.5px solid var(--fg-dim);
+      margin: 0;
+    }
+    .editorial-strip-item {
+      padding: 40px 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .editorial-strip-item:nth-child(2),
+    .editorial-strip-item:nth-child(4) {
+      width: 0.5px;
+      background: var(--fg-dim);
+      padding: 0;
+    }
+    .strip-num {
+      font-family: var(--font-serif);
+      font-size: 52px;
+      font-weight: 700;
+      color: var(--fg);
+      line-height: 1;
+    }
+    .strip-label {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--fg-mid);
+    }
+
+    .manifesto {
+      padding: 96px 0;
+      text-align: center;
+    }
+    .manifesto-text {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 5vw, 58px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--fg);
+      max-width: 900px;
+      margin: 0 auto 36px;
+    }
+    .manifesto-rule {
+      width: 48px;
+      height: 0.5px;
+      background: var(--fg-dim);
+      margin: 0 auto 28px;
+    }
+    .manifesto-sub {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--fg-mid);
+    }
+
+    .latest-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 56px 0 24px;
+      border-bottom: 0.5px solid var(--fg-dim);
+      margin-bottom: 36px;
+    }
+    .latest-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--fg);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.4; transform: scale(0.7); }
+    }
+    .latest-title {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--fg);
+    }
+
+    @media (max-width: 768px) {
+      .editorial-strip { grid-template-columns: 1fr; }
+      .editorial-strip-item:nth-child(2),
+      .editorial-strip-item:nth-child(4) { display: none; }
+      .editorial-strip-item { padding: 28px 0; border-bottom: 0.5px solid var(--fg-dim); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════ -->
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="A Near Future  -  Home">
+      <img src="assets/anf_wordmark.png" alt="A Near Future">
+    </a>
+    <div class="nav-links">
+      <a href="features.html">Features</a>
+      <a href="articles.html">Articles</a>
+
+      <a href="about.html">About</a>
+      <a href="contact.html" class="nav-cta">Nominate</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Drawer -->
+<div class="nav-drawer" aria-hidden="true">
+  <a href="features.html">Features</a>
+  <a href="articles.html">Articles</a>
+  <a href="over-the-table.html">Over The Table</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Nominate</a>
+  <div class="nav-drawer-sub">
+    <a href="features.html#entrepreneurs">Entrepreneurs</a>
+    <a href="features.html#creatives">Creatives</a>
+    <a href="features.html#artists">Artists</a>
+    <a href="features.html#music">Music</a>
+    <a href="features.html#science">Science &amp; Technology</a>
+    <a href="features.html#builders">Builders &amp; Founders</a>
+    <a href="features.html#community">Community</a>
+  </div>
+</div>
+
+<!-- ══ HERO ══════════════════════════════════ -->
+<section class="hero" aria-label="Featured story">
+  <div class="hero-bg">
+    <!-- Replace hero_main.jpg with your actual hero photo -->
+    <img src="assets/jaylen_burton.jpg" alt="" aria-hidden="true">
+    <div class="hero-grad"></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow will-appear">Featured &nbsp;·&nbsp; Community &nbsp;·&nbsp; Detroit</p>
+    <h1 class="hero-headline will-appear d1">Show Up<br>Anyway.</h1>
+    <div class="hero-meta will-appear d2">
+      <a href="features/jaylen-burton.html" class="hero-read">Read Feature</a>
+      <span class="hero-author">Jaylen Burton &nbsp;·&nbsp; Let's Gather &nbsp;·&nbsp; Detroit</span>
+    </div>
+  </div>
+  <div class="hero-scroll-cue" aria-hidden="true">
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ══ TICKER ════════════════════════════════ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-item">A Near Future</span>
+    <span class="ticker-item ticker-dot">✦</span>
+    <span class="ticker-item">Detroit &amp; Beyond</span>
+    <span class="ticker-item ticker-dot">✦</span>
+    <span class="ticker-item">The Next Generation</span>
+    <span class="ticker-item ticker-dot">✦</span>
+    <span class="ticker-item">Entrepreneurs</span>
+    <span class="ticker-item ticker-dot">✦</span>
+    <span class="ticker-item">Creatives</span>
+    <span class="ticker-item ticker-dot">✦</span>
+    <span class="ticker-item">Builders</span>
+    <span class="ticker-item ticker-dot">✦</span>
+    <span class="ticker-item">Artists</span>
+    <span class="ticker-item ticker-dot">✦</span>
+    <span class="ticker-item">Community Leaders</span>
+    <span class="ticker-item ticker-dot">✦</span>
+    <span class="ticker-item">The Near Future Is Now</span>
+    <span class="ticker-item ticker-dot">✦</span>
+  </div>
+</div>
+
+<!-- ══ MANIFESTO STRIP ════════════════════════ -->
+<section class="manifesto">
+  <div class="container">
+    <p class="manifesto-text will-appear">"A Near Future isn't just about showcasing creativity, it's about impacting the future. A future that's already very near."</p>
+    <div class="manifesto-rule will-appear d1"></div>
+    <p class="manifesto-sub will-appear d2">A Near Future &nbsp;·&nbsp; Detroit &nbsp;·&nbsp; Est. 2026</p>
+  </div>
+</section>
+
+<!-- ══ STATS STRIP ════════════════════════════ -->
+<div class="editorial-strip will-appear">
+  <div class="editorial-strip-item">
+    <span class="strip-num">4</span>
+    <span class="strip-label">Features Published</span>
+  </div>
+  <div></div>
+  <div class="editorial-strip-item">
+    <span class="strip-num">7</span>
+    <span class="strip-label">Categories</span>
+  </div>
+  <div></div>
+  <div class="editorial-strip-item">
+    <span class="strip-num">Detroit</span>
+    <span class="strip-label">Home Base</span>
+  </div>
+</div>
+
+<!-- ══ FEATURED STORIES ═══════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section-hd will-appear">
+      <h2 class="section-hd-title">Featured</h2>
+      <a href="features.html" class="section-hd-link">All Features</a>
+    </div>
+
+    <div class="grid-hero">
+      <!-- LARGE CARD — NEWEST FEATURE -->
+      <a href="features/jaylen-burton.html" class="story-card story-card-lg will-appear">
+        <div class="story-card-img-wrap">
+          <img src="assets/jaylen_burton.jpg" alt="Jaylen Burton feature">
+        </div>
+        <div class="story-card-body">
+          <p class="story-card-cat">Community &nbsp;·&nbsp; Detroit &nbsp;·&nbsp; Youth</p>
+          <h3 class="story-card-title">Show Up Anyway: Jaylen Burton and the Movement He's Building for Detroit Youth</h3>
+          <p class="story-card-name">Jaylen Burton &nbsp;·&nbsp; Let's Gather / Jay's International Holdings</p>
+        </div>
+      </a>
+
+      <!-- RIGHT STACK -->
+      <div class="grid-hero-right">
+        <a href="features/javontae-anderson.html" class="story-card will-appear d1">
+          <div class="story-card-img-wrap">
+            <img src="assets/javontae_cover.jpg" alt="Javontae Anderson feature">
+          </div>
+          <div class="story-card-body">
+            <p class="story-card-cat">Builders &amp; Founders &nbsp;·&nbsp; Metro Detroit</p>
+            <h3 class="story-card-title">Two Lanes, One Vision: Javontae Anderson and the Rise of BugINC</h3>
+            <p class="story-card-name">Javontae Anderson &nbsp;·&nbsp; Founder</p>
+          </div>
+        </a>
+
+        <a href="features/myles-davis.html" class="story-card will-appear d2">
+          <div class="story-card-img-wrap">
+            <img src="assets/myles_cover.jpg" alt="Myles Davis feature">
+          </div>
+          <div class="story-card-body">
+            <p class="story-card-cat">Entrepreneurs &nbsp;·&nbsp; Detroit</p>
+            <h3 class="story-card-title">The Long Game: Myles Davis Is Building Davis Enterprise from the Ground Up</h3>
+            <p class="story-card-name">Myles Davis &nbsp;·&nbsp; Age 18</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ LATEST NEWS ════════════════════════════ -->
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="latest-header will-appear">
+      <div class="latest-dot"></div>
+      <span class="latest-title">Latest Articles</span>
+    </div>
+
+    <a href="articles/bridge-to-success.html" class="story-card story-card-wide will-appear">
+      <div class="story-card-img-wrap" style="flex:0 0 200px;">
+        <img src="https://img.hoodline.com/2026/5/detroits-new-tech-liftoff-u-m-and-black-tech-saturdays-build-bridge-to-success-1.webp" alt="Bridge to Success" style="width:200px;height:100%;object-fit:cover;">
+      </div>
+      <div class="story-card-body">
+        <p class="story-card-cat">Tech &nbsp;·&nbsp; Detroit &nbsp;·&nbsp; Education</p>
+        <h3 class="story-card-title">U-M and Black Tech Saturdays Are Building a Free Bridge Into the Tech Industry for Detroit Youth</h3>
+        <p class="story-card-name">A Near Future Editorial</p>
+      </div>
+    </a>
+
+    <a href="articles/artish-2026.html" class="story-card story-card-wide will-appear d1">
+      <div class="story-card-img-wrap" style="flex:0 0 200px;">
+        <img src="https://three18insider.com/wp-content/uploads/2026/05/artish-2026-shreveport-louisiana.avif" alt="Art•ish 2026" style="width:200px;height:100%;object-fit:cover;">
+      </div>
+      <div class="story-card-body">
+        <p class="story-card-cat">Art &nbsp;·&nbsp; Culture &nbsp;·&nbsp; Community</p>
+        <h3 class="story-card-title">Art•ish 2026 Is Proof That Black Creativity Doesn't Need a Co-Sign to Fill a Room</h3>
+        <p class="story-card-name">A Near Future Editorial</p>
+      </div>
+    </a>
+
+    <a href="articles/make-detroit-home.html" class="story-card story-card-wide will-appear d2">
+      <div class="story-card-img-wrap" style="flex:0 0 200px;">
+        <img src="https://a57.foxnews.com/static.foxbusiness.com/foxbusiness.com/content/uploads/2026/04/931/523/detroit-michigan-aerial.jpg?ve=1&tl=1" alt="Make Detroit Home" style="width:200px;height:100%;object-fit:cover;">
+      </div>
+      <div class="story-card-body">
+        <p class="story-card-cat">Detroit &nbsp;·&nbsp; Housing &nbsp;·&nbsp; Opportunity</p>
+        <h3 class="story-card-title">Detroit Is Paying You $15K to Move Here — Here's What You Need to Know</h3>
+        <p class="story-card-name">A Near Future Editorial</p>
+      </div>
+    </a>
+
+    <div style="text-align:center;padding-top:48px;" class="will-appear">
+      <a href="articles.html" style="font-size:10px;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;border-bottom:1px solid var(--fg);padding-bottom:3px;">View All Articles</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ NOMINATE CTA ═══════════════════════════ -->
+<section class="section" style="padding:96px 0;border-top:0.5px solid var(--fg-dim);">
+  <div class="container" style="text-align:center;">
+    <p class="will-appear" style="font-size:10px;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:var(--fg-mid);margin-bottom:24px;">Know Someone?</p>
+    <h2 class="will-appear d1" style="font-family:var(--font-serif);font-size:clamp(36px,6vw,72px);font-weight:700;line-height:0.93;letter-spacing:-0.03em;margin-bottom:32px;">Nominate the<br><em>next feature.</em></h2>
+    <p class="will-appear d2" style="font-size:15px;font-weight:300;color:var(--fg-mid);max-width:440px;margin:0 auto 40px;line-height:1.7;">Know a young entrepreneur, creative, artist, or builder who deserves to be seen? Tell us about them.</p>
+    <a href="contact.html" class="will-appear d3" style="display:inline-block;background:var(--fg);color:var(--bg);padding:16px 52px;font-size:10px;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;transition:opacity 0.2s;" onmouseenter="this.style.opacity='0.82'" onmouseleave="this.style.opacity='1'">Submit a Nomination</a>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-logo">
+        <img src="assets/anf_wordmark.png" alt="A Near Future">
+      </div>
+      <p class="footer-tagline">The next generation of leaders, builders, and visionaries  -  a near future.</p>
+    </div>
+    <div>
+      <p class="footer-col-title">Navigate</p>
+      <ul class="footer-links">
+        <li><a href="features.html">Features</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="over-the-table.html">Over The Table</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Nominate</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Categories</p>
+      <ul class="footer-links">
+        <li><a href="features.html#entrepreneurs">Entrepreneurs</a></li>
+        <li><a href="features.html#creatives">Creatives</a></li>
+        <li><a href="features.html#artists">Artists</a></li>
+        <li><a href="features.html#music">Music</a></li>
+        <li><a href="features.html#builders">Builders &amp; Founders</a></li>
+        <li><a href="features.html#community">Community</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2026 A Near Future. All rights reserved.</p>
+    <p class="footer-copy">Detroit, Michigan</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
