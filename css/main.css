@@ -811,3 +811,166 @@ ul, ol { list-style: none; }
   .hero-headline { line-height: 0.93; }
   .section-hd { padding: 40px 0 18px; }
 }
+
+/* ═══════════════════════════════════════════════════
+   EMAIL GATE
+   Soft metered paywall — shows ~60% of content free,
+   fades to black, gates the rest behind email.
+   SEO-safe: gated content stays in the DOM.
+══════════════════════════════════════════════════ */
+
+/* Gated content — hidden until unlocked */
+.anf-gated { display: none !important; }
+
+/* Once unlocked (class set on <html>) reveal everything */
+html.anf-unlocked .anf-gated      { display: block !important; }
+html.anf-unlocked .anf-fade        { display: none  !important; }
+html.anf-unlocked .anf-gate        { display: none  !important; }
+
+/* Gradient fade — overlaps the last free paragraph */
+.anf-fade {
+  height: 200px;
+  margin-top: -160px;
+  background: linear-gradient(to bottom, transparent 0%, rgba(10,10,10,0.6) 55%, var(--bg) 100%);
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Gate card */
+.anf-gate {
+  background: var(--bg);
+  padding: 0 0 72px;
+  text-align: center;
+  position: relative;
+  z-index: 3;
+  border-top: 0.5px solid var(--fg-dim);
+  margin-top: -1px;
+  /* Entrance animation — JS adds .visible via IntersectionObserver */
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s cubic-bezier(0.16,1,0.3,1),
+              transform 0.75s cubic-bezier(0.16,1,0.3,1);
+}
+.anf-gate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.anf-gate-inner {
+  max-width: 460px;
+  margin: 0 auto;
+  padding: 56px 24px 0;
+}
+
+.anf-gate-eyebrow {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  margin-bottom: 20px;
+}
+
+.anf-gate-head {
+  font-family: var(--font-serif);
+  font-size: clamp(38px, 5.5vw, 60px);
+  font-weight: 700;
+  line-height: 0.91;
+  letter-spacing: -0.03em;
+  color: var(--fg);
+  margin-bottom: 18px;
+}
+
+.anf-gate-sub {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--fg-mid);
+  margin-bottom: 32px;
+}
+
+.anf-gate-form {
+  display: flex;
+  border: 0.5px solid rgba(245,243,238,0.28);
+  transition: border-color 0.25s ease;
+  margin-bottom: 14px;
+}
+.anf-gate-form:focus-within {
+  border-color: rgba(245,243,238,0.55);
+}
+
+.anf-gate-input {
+  flex: 1;
+  padding: 14px 18px;
+  background: transparent;
+  border: none;
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 300;
+  outline: none;
+  min-width: 0;
+}
+.anf-gate-input::placeholder { color: var(--fg-dim); }
+
+.anf-gate-btn {
+  padding: 14px 22px;
+  background: var(--fg);
+  color: var(--bg);
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+.anf-gate-btn:hover { opacity: 0.82; }
+
+.anf-gate-skip {
+  display: block;
+  background: none;
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  cursor: pointer;
+  padding: 10px;
+  margin: 0 auto;
+  transition: color 0.2s;
+}
+.anf-gate-skip:hover { color: var(--fg-mid); }
+
+.anf-gate-success {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-style: italic;
+  color: var(--fg-mid);
+  padding: 20px 0 0;
+  display: none;
+}
+
+/* Exit-intent pulse */
+@keyframes anf-gate-pulse {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%       { transform: translateY(-4px) scale(1.008); }
+}
+.anf-gate.pulse .anf-gate-inner {
+  animation: anf-gate-pulse 0.45s cubic-bezier(0.16,1,0.3,1);
+}
+.anf-gate.pulse { border-color: rgba(245,243,238,0.22); }
+
+@media (max-width: 640px) {
+  .anf-gate-form { flex-direction: column; border: none; gap: 10px; }
+  .anf-gate-input {
+    border: 0.5px solid rgba(245,243,238,0.28);
+    padding: 14px 16px;
+  }
+  .anf-gate-btn { width: 100%; padding: 16px; font-size: 10px; }
+}

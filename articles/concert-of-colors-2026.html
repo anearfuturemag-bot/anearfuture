@@ -28,6 +28,13 @@
   </style>
 </head>
 <body>
+<!-- Netlify Forms detection (do not remove) -->
+<form name="anf-email-gate" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="email" name="email">
+  <input type="hidden" name="source">
+  <input type="hidden" name="date">
+  <input type="text" name="bot-field">
+</form>
 
 <nav class="site-nav">
   <div class="nav-inner">
@@ -126,5 +133,6 @@
 </footer>
 
 <script src="../js/main.js"></script>
+<script src="../js/anf-gate.js"></script>
 </body>
 </html>
