@@ -79,22 +79,33 @@
       '<p class="anf-gate-success" id="anf-success">You\'re in. Unlocking the rest…</p>' +
     '</div>';
 
+  /* ── Set initial invisible state via inline style (before DOM insertion) ── */
+  gate.style.opacity = '0';
+  gate.style.transform = 'translateY(28px)';
+  gate.style.transition = 'none';
+
   lastFree.after(fade);
   fade.after(gate);
 
-  /* ── Entrance animation via IntersectionObserver ── */
+  /* ── Entrance animation — JS-controlled inline styles (bypasses CSS class issues) ── */
+  function showGate() {
+    requestAnimationFrame(function () {
+      gate.style.transition = 'opacity 0.75s cubic-bezier(0.16,1,0.3,1), transform 0.75s cubic-bezier(0.16,1,0.3,1)';
+      gate.style.opacity = '1';
+      gate.style.transform = 'translateY(0)';
+    });
+  }
+
   if ('IntersectionObserver' in window) {
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          setTimeout(function () { gate.classList.add('visible'); }, 120);
-          observer.disconnect();
-        }
-      });
-    }, { threshold: 0.12 });
-    observer.observe(gate);
+    var gateObserver = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        gateObserver.disconnect();
+        setTimeout(showGate, 120);
+      }
+    }, { threshold: 0.05 });
+    gateObserver.observe(gate);
   } else {
-    gate.classList.add('visible'); /* fallback for older browsers */
+    showGate(); /* fallback for older browsers */
   }
 
   /* ── Exit intent ── */
@@ -102,8 +113,9 @@
   document.addEventListener('mouseleave', function (e) {
     if (e.clientY < 50 && !exitFired && !document.documentElement.classList.contains('anf-unlocked')) {
       exitFired = true;
-      gate.classList.add('pulse');
-      setTimeout(function () { gate.classList.remove('pulse'); }, 600);
+      /* Pulse via inline animation */
+      gate.style.animation = 'anf-gate-pulse 0.45s cubic-bezier(0.16,1,0.3,1)';
+      setTimeout(function () { gate.style.animation = ''; }, 500);
       var rect = gate.getBoundingClientRect();
       if (rect.top > window.innerHeight || rect.bottom < 0) {
         gate.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -159,6 +171,10 @@
   function unlock(permanent) {
     document.documentElement.classList.add('anf-unlocked');
     if (permanent) setUnlocked();
+
+    /* Hide gate + fade via inline style (reliable across all browsers) */
+    gate.style.display = 'none';
+    fade.style.display = 'none';
 
     var gated = document.querySelectorAll('.anf-gated');
     gated.forEach(function (el) {

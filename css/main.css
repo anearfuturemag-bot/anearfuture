@@ -847,14 +847,7 @@ html.anf-unlocked .anf-gate        { display: none  !important; }
   border-top: 0.5px solid var(--fg-dim);
   margin-top: -1px;
   /* Entrance animation — JS adds .visible via IntersectionObserver */
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.75s cubic-bezier(0.16,1,0.3,1),
-              transform 0.75s cubic-bezier(0.16,1,0.3,1);
-}
-.anf-gate.visible {
-  opacity: 1;
-  transform: translateY(0);
+  /* Initial opacity/transform are set by anf-gate.js via inline styles */
 }
 
 .anf-gate-inner {
