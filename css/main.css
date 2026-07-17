@@ -3,6 +3,8 @@
    anearfuture.com
 ══════════════════════════════════════════════════ */
 
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap');
+
 /* ── VARIABLES ── */
 :root {
   --bg:       #0A0A0A;
@@ -821,11 +823,52 @@ ul, ol { list-style: none; }
 
   .section { padding: 56px 0; }
   .page-hd { padding-top: calc(var(--nav-h) + 48px); }
+
+  /* ── Split hero — stack, photo first ── */
+  .hero-split {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .hero-split-right {
+    order: -1;
+    min-height: 72vw;
+  }
+  .hero-split-right::after {
+    background: linear-gradient(to bottom, transparent 40%, #080808 95%);
+  }
+  .hero-split-left {
+    padding: 28px var(--pad) 56px;
+    gap: 28px;
+  }
+
+  /* ── Nav drawer — smaller type on narrow screens ── */
+  .nav-drawer > a {
+    font-size: clamp(28px, 8vw, 40px);
+    padding: 13px 0;
+    gap: 14px;
+  }
+  .nav-drawer > a::before {
+    font-size: 12px;
+    min-width: 20px;
+  }
+
+  /* ── Wide article cards ── */
+  .story-card-wide {
+    gap: 16px;
+  }
+  .story-card-wide .story-card-img-wrap {
+    width: 100%;
+  }
+  .story-card-wide .story-card-img-wrap img {
+    aspect-ratio: 16/9;
+    width: 100%;
+  }
 }
 
 @media (max-width: 480px) {
-  .hero-headline { line-height: 0.93; }
+  .hero-headline { font-size: clamp(38px, 10vw, 56px); line-height: 0.93; }
   .section-hd { padding: 40px 0 18px; }
+  .hero-split-right { min-height: 85vw; }
 }
 
 /* ═══════════════════════════════════════════════════
