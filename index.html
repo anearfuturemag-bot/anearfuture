@@ -7,7 +7,7 @@
   <title>A Near Future</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
   <style>
     /* ── HOME-ONLY STYLES ── */
@@ -132,6 +132,58 @@
       .editorial-strip-item:nth-child(4) { display: none; }
       .editorial-strip-item { padding: 28px 0; border-bottom: 0.5px solid var(--fg-dim); }
     }
+
+    /* ── SPLIT HERO ── */
+    .hero-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-top: var(--nav-h);
+      min-height: calc(100svh - var(--nav-h));
+    }
+    .hero-split-left {
+      background: #080808;
+      padding: clamp(52px, 7vw, 96px) clamp(28px, 5vw, 80px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 48px;
+    }
+    .hero-split-right {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-split-right img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 12%;
+    }
+    .hero-split-right::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, #080808 0%, transparent 32%);
+    }
+    .hero-split-issue {
+      font-size: 9px;
+      font-weight: 300;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(245,243,238,0.2);
+      margin-bottom: 8px;
+    }
+    .hero-split-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--fg-mid);
+      max-width: 440px;
+      line-height: 1.75;
+      margin-top: 28px;
+    }
+    @media (max-width: 768px) {
+      .hero-split { grid-template-columns: 1fr; }
+      .hero-split-right { min-height: 56vw; }
+    }
   </style>
 </head>
 <body>
@@ -174,21 +226,21 @@
 </div>
 
 <!-- ══ HERO ══════════════════════════════════ -->
-<section class="hero" aria-label="Featured story">
-  <div class="hero-bg">
-    <img src="assets/laurice_houston.jpg" alt="Laurice Houston" aria-hidden="true" style="object-position:center 12%;">
-    <div class="hero-grad"></div>
-  </div>
-  <div class="hero-content">
-    <p class="hero-eyebrow will-appear">Builders &amp; Founders &nbsp;·&nbsp; Metro Detroit</p>
-    <h1 class="hero-headline will-appear d1">Written Down,<br>Made Plain.</h1>
-    <div class="hero-meta will-appear d2">
+<section class="hero-split" aria-label="Featured story">
+  <div class="hero-split-left">
+    <div>
+      <p class="hero-split-issue will-appear">A Near Future &nbsp;·&nbsp; July 2026</p>
+      <p class="hero-eyebrow will-appear">Builders &amp; Founders &nbsp;·&nbsp; Detroit</p>
+      <h1 class="hero-headline will-appear d1">Written Down,<br>Made Plain.</h1>
+      <p class="hero-split-sub will-appear d2">Laurice Houston built Care En Color from a conversation she couldn't stop having. Now Detroit's watching.</p>
+    </div>
+    <div class="hero-meta will-appear d3">
       <a href="features/laurice-houston.html" class="hero-read">Read Feature</a>
       <span class="hero-author">Laurice Houston &nbsp;·&nbsp; Founder, Care En Color</span>
     </div>
   </div>
-  <div class="hero-scroll-cue" aria-hidden="true">
-    <div class="scroll-line"></div>
+  <div class="hero-split-right">
+    <img src="assets/laurice_houston.jpg" alt="Laurice Houston" loading="eager">
   </div>
 </section>
 
@@ -224,24 +276,6 @@
     <p class="manifesto-sub will-appear d2">A Near Future &nbsp;·&nbsp; Detroit &nbsp;·&nbsp; Est. 2026</p>
   </div>
 </section>
-
-<!-- ══ STATS STRIP ════════════════════════════ -->
-<div class="editorial-strip will-appear">
-  <div class="editorial-strip-item">
-    <span class="strip-num">6</span>
-    <span class="strip-label">Features Published</span>
-  </div>
-  <div></div>
-  <div class="editorial-strip-item">
-    <span class="strip-num">7</span>
-    <span class="strip-label">Categories</span>
-  </div>
-  <div></div>
-  <div class="editorial-strip-item">
-    <span class="strip-num">Detroit</span>
-    <span class="strip-label">Home Base</span>
-  </div>
-</div>
 
 <!-- ══ FEATURED STORIES ═══════════════════════ -->
 <section class="section">
