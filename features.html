@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/newsletter.css">
 </head>
 <body>
 
@@ -60,6 +61,28 @@
 
   <!-- FEATURES GRID -->
   <div class="grid-3" style="margin-bottom:96px;" id="features-grid">
+
+    <a href="features/william-patterson.html" class="story-card story-card-lg will-appear" data-cat="speakers athletes">
+      <div class="story-card-img-wrap">
+        <img src="assets/william_patterson.jpg" alt="William Patterson">
+      </div>
+      <div class="story-card-body">
+        <p class="story-card-cat">Speakers &amp; Athletes &nbsp;·&nbsp; Metro Detroit</p>
+        <h3 class="story-card-title">The Same 24 Hours: William Patterson on Faith, Confidence, and the Track Ahead</h3>
+        <p class="story-card-name">William Patterson &nbsp;·&nbsp; Motivational Speaker &amp; Track Athlete</p>
+      </div>
+    </a>
+
+    <a href="features/kilz-the-don.html" class="story-card story-card-lg will-appear" data-cat="the blueprint music entertainment">
+      <div class="story-card-img-wrap">
+        <img src="assets/kilz_the_don.jpg" alt="KilzTheDon">
+      </div>
+      <div class="story-card-body">
+        <p class="story-card-cat">The Blueprint &nbsp;·&nbsp; Detroit &nbsp;·&nbsp; Entertainment</p>
+        <h3 class="story-card-title">Keep Showing Up: KilzTheDon on Building 100K Entertainment</h3>
+        <p class="story-card-name">KilzTheDon &nbsp;·&nbsp; Executive Producer, 100K Entertainment</p>
+      </div>
+    </a>
 
     <a href="features/victoria-beardsley.html" class="story-card story-card-lg will-appear" data-cat="creatives storytellers">
       <div class="story-card-img-wrap">
@@ -223,6 +246,25 @@
   </div>
 </footer>
 
+
+<!-- ANF NEWSLETTER SIGNUP CARD -->
+<div class="anf-news-card" id="anf-news-card">
+  <button class="anf-news-close" id="anf-news-close" aria-label="Close">&times;</button>
+  <img class="anf-news-mark" src="assets/anf_logo_mark.png" alt="A Near Future">
+  <p class="anf-news-eyebrow">A Near Future</p>
+  <h2 class="anf-news-head">Join the list.</h2>
+  <p class="anf-news-sub">Monthly drops on the young builders, creatives, and founders shaping what's next. Free, no spam.</p>
+  <form class="anf-news-form" id="anf-news-form" name="newsletter-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="newsletter-signup">
+    <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+    <input type="email" class="anf-news-input" id="anf-news-email" name="email" placeholder="your@email.com" required autocomplete="email">
+    <button type="submit" class="anf-news-btn">Join &rarr;</button>
+  </form>
+  <p class="anf-news-error" id="anf-news-error"></p>
+  <p class="anf-news-success" id="anf-news-success">You're in. Check your inbox.</p>
+</div>
+
 <script src="js/main.js"></script>
+<script src="js/newsletter.js" defer></script>
 </body>
 </html>
