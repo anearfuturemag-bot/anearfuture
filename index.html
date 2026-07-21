@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/newsletter.css">
   <style>
     /* ── HOME-ONLY STYLES ── */
     .hero-scroll-cue {
@@ -331,6 +332,17 @@
       <span class="latest-title">Latest Articles</span>
     </div>
 
+    <a href="articles/dnep-ai-detroit-small-business.html" class="story-card story-card-wide will-appear">
+      <div class="story-card-img-wrap" style="flex:0 0 200px;">
+        <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=600&h=600&fit=crop&crop=entropy&q=70&auto=format" alt="A Detroit entrepreneur working on a laptop" style="width:200px;height:100%;object-fit:cover;">
+      </div>
+      <div class="story-card-body">
+        <p class="story-card-cat">Detroit &nbsp;·&nbsp; Small Business &nbsp;·&nbsp; Tech</p>
+        <h3 class="story-card-title">Detroit's Block Is Getting an AI Back Office</h3>
+        <p class="story-card-name">A Near Future Editorial</p>
+      </div>
+    </a>
+
     <a href="articles/just-elevate-fitness-detroit.html" class="story-card story-card-wide will-appear">
       <div class="story-card-img-wrap" style="flex:0 0 200px;">
         <img src="https://images.unsplash.com/photo-1603077492579-39ff927823db?w=600&h=600&fit=crop&crop=entropy&q=70&auto=format" alt="Dumbbells in a gym" style="width:200px;height:100%;object-fit:cover;">
@@ -360,17 +372,6 @@
       <div class="story-card-body">
         <p class="story-card-cat">Detroit &nbsp;·&nbsp; Founders &nbsp;·&nbsp; Youth</p>
         <h3 class="story-card-title">A Detroit Beauty Founder Is Building a Youth Pipeline</h3>
-        <p class="story-card-name">A Near Future Editorial</p>
-      </div>
-    </a>
-
-    <a href="articles/detroit-new-music-2026.html" class="story-card story-card-wide will-appear">
-      <div class="story-card-img-wrap" style="flex:0 0 200px;">
-        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=600&fit=crop&crop=entropy&q=70&auto=format" alt="Artist performing under stage lights" style="width:200px;height:100%;object-fit:cover;">
-      </div>
-      <div class="story-card-body">
-        <p class="story-card-cat">Detroit &nbsp;·&nbsp; Music &nbsp;·&nbsp; Culture</p>
-        <h3 class="story-card-title">Detroit's Next Wave of Music Is Already Here</h3>
         <p class="story-card-name">A Near Future Editorial</p>
       </div>
     </a>
@@ -428,6 +429,25 @@
   </div>
 </footer>
 
+
+<!-- ANF NEWSLETTER SIGNUP CARD -->
+<div class="anf-news-card" id="anf-news-card">
+  <button class="anf-news-close" id="anf-news-close" aria-label="Close">&times;</button>
+  <img class="anf-news-mark" src="assets/anf_logo_mark.png" alt="A Near Future">
+  <p class="anf-news-eyebrow">A Near Future</p>
+  <h2 class="anf-news-head">Join the list.</h2>
+  <p class="anf-news-sub">Monthly drops on the young builders, creatives, and founders shaping what's next. Free, no spam.</p>
+  <form class="anf-news-form" id="anf-news-form" name="newsletter-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="newsletter-signup">
+    <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+    <input type="email" class="anf-news-input" id="anf-news-email" name="email" placeholder="your@email.com" required autocomplete="email">
+    <button type="submit" class="anf-news-btn">Join &rarr;</button>
+  </form>
+  <p class="anf-news-error" id="anf-news-error"></p>
+  <p class="anf-news-success" id="anf-news-success">You're in. Check your inbox.</p>
+</div>
+
 <script src="js/main.js"></script>
+<script src="js/newsletter.js" defer></script>
 </body>
 </html>
