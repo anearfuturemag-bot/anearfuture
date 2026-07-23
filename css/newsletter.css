@@ -1,0 +1,153 @@
+/* ═══════════════════════════════════════════
+   A NEAR FUTURE — newsletter.css
+   Sitewide newsletter signup card (Netlify Forms)
+════════════════════════════════════════════ */
+
+.anf-news-card {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: min(360px, calc(100vw - 40px));
+  background: #0A0A0A;
+  border: 0.5px solid rgba(245,243,238,0.2);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  padding: 28px 24px 24px;
+  z-index: 9999;
+  transform: translateY(20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.anf-news-card.visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+.anf-news-card.pulse {
+  animation: anf-news-pulse 0.4s ease;
+}
+@keyframes anf-news-pulse {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(0) scale(1.015); }
+}
+
+.anf-news-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: rgba(245,243,238,0.35);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 6px;
+  transition: color 0.2s;
+}
+.anf-news-close:hover { color: #F5F3EE; }
+
+/* Logo mark removed — eyebrow text identifies the brand */
+.anf-news-mark { display: none !important; }
+
+.anf-news-eyebrow {
+  font-family: var(--font-sans, 'Montserrat', sans-serif);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(245,243,238,0.4);
+  margin: 0 0 10px;
+}
+
+.anf-news-head {
+  font-family: var(--font-serif, 'Bodoni Moda', serif);
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: #F5F3EE;
+  margin: 0 0 10px;
+}
+
+.anf-news-sub {
+  font-family: var(--font-sans, 'Montserrat', sans-serif);
+  font-size: 12.5px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(245,243,238,0.6);
+  margin: 0 0 20px;
+}
+
+.anf-news-form {
+  display: flex;
+  border: 0.5px solid rgba(245,243,238,0.3);
+  transition: border-color 0.2s;
+}
+.anf-news-form:focus-within {
+  border-color: rgba(245,243,238,0.6);
+}
+
+.anf-news-input {
+  flex: 1;
+  min-width: 0;
+  padding: 13px 14px;
+  background: transparent;
+  border: none;
+  color: #F5F3EE;
+  font-family: var(--font-sans, 'Montserrat', sans-serif);
+  font-size: 12.5px;
+  font-weight: 300;
+  outline: none;
+}
+.anf-news-input::placeholder { color: rgba(245,243,238,0.25); }
+
+.anf-news-btn {
+  padding: 13px 18px;
+  background: #F5F3EE;
+  color: #0A0A0A;
+  border: none;
+  font-family: var(--font-sans, 'Montserrat', sans-serif);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+.anf-news-btn:hover { opacity: 0.85; }
+.anf-news-btn:disabled { opacity: 0.5; cursor: default; }
+
+.anf-news-note {
+  font-family: var(--font-sans, 'Montserrat', sans-serif);
+  font-size: 10px;
+  font-weight: 400;
+  color: rgba(245,243,238,0.3);
+  margin: 12px 0 0;
+}
+
+.anf-news-success {
+  font-family: var(--font-serif, 'Bodoni Moda', serif);
+  font-size: 16px;
+  font-style: italic;
+  color: rgba(245,243,238,0.75);
+  display: none;
+  margin: 0;
+}
+
+.anf-news-error {
+  font-family: var(--font-sans, 'Montserrat', sans-serif);
+  font-size: 11px;
+  color: #e08585;
+  display: none;
+  margin: 10px 0 0;
+}
+
+@media (max-width: 480px) {
+  .anf-news-card {
+    left: 16px;
+    right: 16px;
+    width: auto;
+    padding: 26px 22px 22px;
+  }
+}
