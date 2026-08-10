@@ -332,56 +332,50 @@
       <span class="latest-title">Latest Articles</span>
     </div>
 
-    <a href="articles/rocket-digital-inclusion-detroit-2026.html" class="story-card story-card-wide will-appear">
-      <div class="story-card-img-wrap" style="flex:0 0 200px;">
-        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=600&fit=crop&crop=entropy&q=70&auto=format" alt="Young Detroiters collaborating on laptops" style="width:200px;height:100%;object-fit:cover;">
-      </div>
-      <div class="story-card-body">
-        <p class="story-card-cat">Detroit &nbsp;·&nbsp; Digital Inclusion &nbsp;·&nbsp; Youth</p>
-        <h3 class="story-card-title">Rocket Just Put $4.5 Million Into Getting Detroit Online</h3>
-        <p class="story-card-name">A Near Future Editorial</p>
-      </div>
-    </a>
-
-    <a href="articles/nxlite-series-a-2026.html" class="story-card story-card-wide will-appear">
-      <div class="story-card-img-wrap" style="flex:0 0 200px;">
-        <img src="https://images.unsplash.com/photo-1745015446589-7ee6f702d8c1?w=600&h=600&fit=crop&crop=entropy&q=70&auto=format" alt="Glass facade of a modern building with energy-efficient window panels" style="width:200px;height:100%;object-fit:cover;">
-      </div>
-      <div class="story-card-body">
-        <p class="story-card-cat">Detroit &nbsp;·&nbsp; Tech &nbsp;·&nbsp; Manufacturing</p>
-        <h3 class="story-card-title">A Metro Detroit Startup Just Raised $13.1 Million to Scale Its Factory</h3>
-        <p class="story-card-name">A Near Future Editorial</p>
-      </div>
-    </a>
-
-    <a href="articles/dnep-ai-detroit-small-business.html" class="story-card story-card-wide will-appear">
-      <div class="story-card-img-wrap" style="flex:0 0 200px;">
-        <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=600&h=600&fit=crop&crop=entropy&q=70&auto=format" alt="A Detroit entrepreneur working on a laptop" style="width:200px;height:100%;object-fit:cover;">
-      </div>
-      <div class="story-card-body">
-        <p class="story-card-cat">Detroit &nbsp;·&nbsp; Small Business &nbsp;·&nbsp; Tech</p>
-        <h3 class="story-card-title">Detroit's Block Is Getting an AI Back Office</h3>
-        <p class="story-card-name">A Near Future Editorial</p>
-      </div>
-    </a>
-
-    <a href="articles/just-elevate-fitness-detroit.html" class="story-card story-card-wide will-appear">
-      <div class="story-card-img-wrap" style="flex:0 0 200px;">
-        <img src="https://images.unsplash.com/photo-1603077492579-39ff927823db?w=600&h=600&fit=crop&crop=entropy&q=70&auto=format" alt="Dumbbells in a gym" style="width:200px;height:100%;object-fit:cover;">
-      </div>
-      <div class="story-card-body">
-        <p class="story-card-cat">Detroit &nbsp;·&nbsp; Founders &nbsp;·&nbsp; Business</p>
-        <h3 class="story-card-title">He Built a Downtown Detroit Gym From an Idea Up</h3>
-        <p class="story-card-name">A Near Future Editorial</p>
-      </div>
-    </a>
-
+    <div id="latest-articles-list">
+      <!-- Populated dynamically from articles.html -->
+    </div>
 
     <div style="text-align:center;padding-top:48px;" class="will-appear">
       <a href="articles.html" style="font-size:10px;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;border-bottom:1px solid var(--fg);padding-bottom:3px;">View All Articles</a>
     </div>
   </div>
 </section>
+
+<script>
+(function () {
+  var container = document.getElementById('latest-articles-list');
+  if (!container) return;
+
+  fetch('articles.html')
+    .then(function (r) { return r.text(); })
+    .then(function (html) {
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(html, 'text/html');
+      var rows = doc.querySelectorAll('a.article-row');
+      var shown = 0;
+      rows.forEach(function (row) {
+        if (shown >= 5) return;
+        var href = row.getAttribute('href');
+        var cat = row.querySelector('.article-row-cat');
+        var title = row.querySelector('.article-row-title');
+        if (!href || !title) return;
+        var card = document.createElement('a');
+        card.href = href;
+        card.className = 'story-card story-card-wide will-appear';
+        card.innerHTML =
+          '<div class="story-card-body">' +
+            (cat ? '<p class="story-card-cat">' + cat.innerHTML + '</p>' : '') +
+            '<h3 class="story-card-title">' + title.innerHTML + '</h3>' +
+            '<p class="story-card-name">A Near Future Editorial</p>' +
+          '</div>';
+        container.appendChild(card);
+        shown++;
+      });
+    })
+    .catch(function () {});
+})();
+</script>
 
 <!-- ══ NOMINATE CTA ═══════════════════════════ -->
 <section class="section" style="padding:96px 0;border-top:0.5px solid var(--fg-dim);">
