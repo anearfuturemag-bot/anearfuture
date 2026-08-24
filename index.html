@@ -228,17 +228,17 @@
   <div class="hero-split-left">
     <div>
       <p class="hero-split-issue will-appear">A Near Future &nbsp;·&nbsp; August 2026</p>
-      <p class="hero-eyebrow will-appear">Fashion &amp; Faith &nbsp;·&nbsp; Metro Detroit</p>
-      <h1 class="hero-headline will-appear d1">Faith,<br>Out Loud.</h1>
-      <p class="hero-split-sub will-appear d2">Joshua Thomas is building more than a clothing line. With One Faith Apparel, he gives believers a way to express their faith when words fall short.</p>
+      <p class="hero-eyebrow will-appear">Visual Art &nbsp;·&nbsp; Photography &nbsp;·&nbsp; Detroit</p>
+      <h1 class="hero-headline will-appear d1">Build<br>Loud.</h1>
+      <p class="hero-split-sub will-appear d2">Jason Johnson makes his case in paint and in photographs. A Detroit visual artist going all in, building trust in himself, and refusing to stay quiet about the work.</p>
     </div>
     <div class="hero-meta will-appear d3">
-      <a href="features/joshua-thomas.html" class="hero-read">Read Feature</a>
-      <span class="hero-author">Joshua Thomas &nbsp;·&nbsp; Founder, One Faith Apparel</span>
+      <a href="features/jason-johnson.html" class="hero-read">Read Feature</a>
+      <span class="hero-author">Jason Johnson &nbsp;·&nbsp; Visual Artist</span>
     </div>
   </div>
   <div class="hero-split-right">
-    <img src="assets/joshua_thomas.jpg" alt="Joshua Thomas" loading="eager">
+    <img src="assets/jason_johnson.jpg" alt="Jason Johnson" loading="eager">
   </div>
 </section>
 
@@ -283,44 +283,73 @@
       <a href="features.html" class="section-hd-link">All Features</a>
     </div>
 
-    <div class="grid-hero">
-      <!-- LARGE CARD — NEWEST FEATURE -->
-      <a href="features/laurice-houston.html" class="story-card story-card-lg will-appear">
-        <div class="story-card-img-wrap">
-          <img src="assets/laurice_houston.jpg" alt="Laurice Houston feature" style="object-position:center 12%;">
-        </div>
-        <div class="story-card-body">
-          <p class="story-card-cat">Builders &amp; Founders &nbsp;·&nbsp; Metro Detroit</p>
-          <h3 class="story-card-title">Written Down, Made Plain: Laurice Houston and the Rebirth of Care En Color</h3>
-          <p class="story-card-name">Laurice Houston &nbsp;·&nbsp; Founder, Care En Color</p>
-        </div>
-      </a>
-
-      <!-- RIGHT STACK -->
-      <div class="grid-hero-right">
-        <a href="features/victoria-beardsley.html" class="story-card will-appear d1">
-          <div class="story-card-img-wrap">
-            <img src="assets/victoria_beardsley.jpg" alt="Victoria Beardsley feature">
-          </div>
-          <div class="story-card-body">
-            <p class="story-card-cat">Creatives &nbsp;·&nbsp; Detroit</p>
-            <h3 class="story-card-title">The Story in Every Moment: Victoria Beardsley on Film, Photography, and Faith</h3>
-            <p class="story-card-name">Victoria Beardsley &nbsp;·&nbsp; Photographer &amp; Filmmaker</p>
-          </div>
-        </a>
-
-        <a href="features/dj-hit.html" class="story-card will-appear d2">
-          <div class="story-card-img-wrap">
-            <img src="assets/dj_hit_cover.jpg" alt="DJ Hit feature">
-          </div>
-          <div class="story-card-body">
-            <p class="story-card-cat">Music &nbsp;·&nbsp; Detroit &nbsp;·&nbsp; Entrepreneur</p>
-            <h3 class="story-card-title">Nine Years In: DJ Hit Has Been Building Since He Was 10</h3>
-            <p class="story-card-name">DJ Hit &nbsp;·&nbsp; David &nbsp;·&nbsp; Detroit</p>
-          </div>
-        </a>
-      </div>
+    <div class="grid-hero" id="featured-grid">
+      <!-- Populated dynamically from features.html -->
     </div>
+
+    <script>
+    (function () {
+      var grid = document.getElementById('featured-grid');
+      if (!grid) return;
+      fetch('features.html')
+        .then(function (r) { return r.text(); })
+        .then(function (html) {
+          var parser = new DOMParser();
+          var doc = parser.parseFromString(html, 'text/html');
+          var cards = doc.querySelectorAll('a.story-card');
+          var items = [];
+          cards.forEach(function (c) {
+            var href = c.getAttribute('href');
+            var img = c.querySelector('img');
+            var cat = c.querySelector('.story-card-cat');
+            var title = c.querySelector('.story-card-title');
+            var name = c.querySelector('.story-card-name');
+            if (!href || !title) return;
+            // dedupe by href
+            if (items.find(function(x){ return x.href === href; })) return;
+            items.push({
+              href: href,
+              imgSrc: img ? img.getAttribute('src') : '',
+              imgAlt: img ? img.getAttribute('alt') : '',
+              cat: cat ? cat.innerHTML : '',
+              title: title.innerHTML,
+              name: name ? name.innerHTML : ''
+            });
+          });
+          if (items.length === 0) return;
+          // Large card
+          var lg = items[0];
+          var lgEl = document.createElement('a');
+          lgEl.href = lg.href;
+          lgEl.className = 'story-card story-card-lg';
+          lgEl.innerHTML = '<div class="story-card-img-wrap"><img src="' + lg.imgSrc + '" alt="' + lg.imgAlt + '"></div>' +
+            '<div class="story-card-body">' +
+              '<p class="story-card-cat">' + lg.cat + '</p>' +
+              '<h3 class="story-card-title">' + lg.title + '</h3>' +
+              '<p class="story-card-name">' + lg.name + '</p>' +
+            '</div>';
+          grid.appendChild(lgEl);
+          // Right stack
+          var right = document.createElement('div');
+          right.className = 'grid-hero-right';
+          [items[1], items[2]].forEach(function (f, i) {
+            if (!f) return;
+            var el = document.createElement('a');
+            el.href = f.href;
+            el.className = 'story-card';
+            el.innerHTML = '<div class="story-card-img-wrap"><img src="' + f.imgSrc + '" alt="' + f.imgAlt + '"></div>' +
+              '<div class="story-card-body">' +
+                '<p class="story-card-cat">' + f.cat + '</p>' +
+                '<h3 class="story-card-title">' + f.title + '</h3>' +
+                '<p class="story-card-name">' + f.name + '</p>' +
+              '</div>';
+            right.appendChild(el);
+          });
+          grid.appendChild(right);
+        })
+        .catch(function () {});
+    })();
+    </script>
   </div>
 </section>
 
@@ -362,7 +391,7 @@
         if (!href || !title) return;
         var card = document.createElement('a');
         card.href = href;
-        card.className = 'story-card story-card-wide will-appear';
+        card.className = 'story-card story-card-wide';
         card.innerHTML =
           '<div class="story-card-body">' +
             (cat ? '<p class="story-card-cat">' + cat.innerHTML + '</p>' : '') +
