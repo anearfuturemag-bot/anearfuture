@@ -182,6 +182,18 @@
       margin-top: 28px;
     }
     /* Mobile overrides handled in main.css */
+    .featured-row-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 32px;
+    }
+    @media (max-width: 900px) {
+      .featured-row-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 540px) {
+      .featured-row-grid { grid-template-columns: 1fr; gap: 16px; }
+    }
   </style>
 </head>
 <body>
@@ -228,17 +240,17 @@
   <div class="hero-split-left">
     <div>
       <p class="hero-split-issue will-appear">A Near Future &nbsp;·&nbsp; August 2026</p>
-      <p class="hero-eyebrow will-appear">Wellness &amp; Founders &nbsp;·&nbsp; Metro Detroit</p>
-      <h1 class="hero-headline will-appear d1">Room to<br>Breathe.</h1>
-      <p class="hero-split-sub will-appear d2">At 18, Kya Woods is already teaching other people how to slow down. A certified yoga instructor building Harmony by Kya — making wellness more accessible to young people.</p>
+      <p class="hero-eyebrow will-appear">Education &amp; Founders &nbsp;·&nbsp; Metro Detroit</p>
+      <h1 class="hero-headline will-appear d1">Get the<br>Money.</h1>
+      <p class="hero-split-sub will-appear d2">Elijah Robinson turned his own scholarship wins into a movement. He built Scholarship Gawd to help students find the money that's already out there — and stop leaving it on the table.</p>
     </div>
     <div class="hero-meta will-appear d3">
-      <a href="features/kya-woods.html" class="hero-read">Read Feature</a>
-      <span class="hero-author">Kya Woods &nbsp;·&nbsp; Founder, Harmony by Kya</span>
+      <a href="features/elijah-robinson.html" class="hero-read">Read Feature</a>
+      <span class="hero-author">Elijah Robinson &nbsp;·&nbsp; Founder, Scholarship Gawd</span>
     </div>
   </div>
   <div class="hero-split-right">
-    <img src="assets/kya_woods.jpg" alt="Kya Woods" loading="eager">
+    <img src="assets/elijah_robinson.jpg" alt="Elijah Robinson" loading="eager">
   </div>
 </section>
 
@@ -284,7 +296,7 @@
       <a href="features.html" style="font-size:9px;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--fg-mid);margin-left:auto;border-bottom:1px solid var(--fg-mid);padding-bottom:2px;">All Features</a>
     </div>
 
-    <div id="featured-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:32px;">
+    <div id="featured-grid" class="featured-row-grid">
       <!-- Populated dynamically from features.html -->
     </div>
 
