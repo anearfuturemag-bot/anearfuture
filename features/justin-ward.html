@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Justin Ward is a 17 year old Detroit artist and puppeteer, creator of Draw It Out, a children's literacy series. A Near Future feature.">
+  <title>Justin Ward - A Near Future</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/newsletter.css">
+  <style>
+    .feature-hero { min-height: 100svh; position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding-top: var(--nav-h); overflow: hidden; }
+    .feature-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+    .feature-hero-grad { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10,10,10,0.1) 0%, rgba(10,10,10,0) 25%, rgba(10,10,10,0.7) 65%, #0A0A0A 100%); }
+    .feature-hero-content { position: relative; z-index: 2; max-width: var(--max-w); margin: 0 auto; width: 100%; padding: 0 var(--pad) 72px; }
+    .feature-body { max-width: 720px; margin: 0 auto; padding: 80px var(--pad) 96px; }
+    .feature-intro { font-family: var(--font-serif); font-size: clamp(20px, 2.5vw, 26px); font-weight: 400; font-style: italic; line-height: 1.55; letter-spacing: -0.01em; color: var(--fg-mid); margin-bottom: 48px; padding-bottom: 48px; border-bottom: 0.5px solid var(--fg-dim); }
+    .feature-qa { margin-bottom: 56px; }
+    .feature-q { font-size: 10px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--fg-mid); margin-bottom: 18px; }
+    .feature-a { font-family: var(--font-serif); font-size: clamp(22px, 2.8vw, 30px); font-weight: 400; line-height: 1.45; letter-spacing: -0.01em; color: var(--fg); }
+    .feature-pullquote { border-left: 1px solid var(--fg-dim); padding: 8px 0 8px 32px; margin: 56px 0; }
+    .feature-pullquote p { font-family: var(--font-serif); font-size: clamp(26px, 3.5vw, 38px); font-weight: 400; font-style: italic; line-height: 1.25; letter-spacing: -0.02em; }
+    .feature-figure { margin: 64px 0; }
+    .feature-figure img { width: 100%; height: auto; display: block; }
+    .feature-figure.is-inset img { max-width: 460px; margin: 0 auto; }
+    .feature-figure figcaption { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-mid); margin-top: 16px; text-align: center; }
+    .feature-nav { display: flex; justify-content: space-between; align-items: center; padding: 40px 0; border-top: 0.5px solid var(--fg-dim); margin-top: 80px; }
+    .feature-nav a { font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--fg-mid); transition: color 0.2s; }
+    .feature-nav a:hover { color: var(--fg); }
+  </style>
+</head>
+<body>
+<!-- Netlify Forms detection (do not remove) -->
+<form name="anf-email-gate" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="email" name="email">
+  <input type="hidden" name="source">
+  <input type="hidden" name="date">
+  <input type="text" name="bot-field">
+</form>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../assets/anf_wordmark.png" alt="A Near Future"></a>
+    <div class="nav-links">
+      <a href="../features.html">Features</a>
+      <a href="../articles.html">Articles</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html" class="nav-cta">Nominate</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-drawer">
+  <a href="../features.html">Features</a>
+  <a href="../articles.html">Articles</a>
+  <a href="../about.html">About</a>
+  <a href="../contact.html">Nominate</a>
+</div>
+
+<!-- HERO -->
+<section class="feature-hero">
+  <img class="feature-hero-img" src="../assets/justin_ward.jpg" alt="Justin Ward">
+  <div class="feature-hero-grad"></div>
+  <div class="feature-hero-content">
+    <p class="will-appear" style="font-size:10px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--fg-mid);margin-bottom:20px;">Artist &amp; Storyteller &nbsp;·&nbsp; Detroit</p>
+    <h1 class="will-appear d1" style="font-family:var(--font-serif);font-size:clamp(52px,9vw,120px);font-weight:700;line-height:0.91;letter-spacing:-0.03em;margin-bottom:24px;">Draw It<br>Out.</h1>
+    <p class="will-appear d2" style="font-size:13px;font-weight:400;letter-spacing:0.15em;text-transform:uppercase;color:var(--fg-mid);">Justin Ward &nbsp;·&nbsp; Artist &amp; Puppeteer, Creator of Draw It Out &nbsp;·&nbsp; Detroit</p>
+  </div>
+</section>
+
+<!-- BODY -->
+<article class="feature-body">
+
+  <p class="feature-intro will-appear">Justin Ward has been building puppets since he was six. Now 17, the Detroit artist, puppeteer, and poet is the creator behind Draw It Out, an educational children's series that turns puppetry, art, animation, and live action into a tool for teaching kids how to read.</p>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">Who are you, and what are you building right now?</p>
+    <p class="feature-a">"I'm Justin Ward, an American artist, puppeteer, poet, actor, and creator. I've always been interested in using art as a way to communicate ideas and connect with people. Right now, I'm building Draw It Out, an educational children's show that combines puppetry, animation, art, and live action to help kids learn how to read. At the same time, I'm continuing to develop my fashion brand, poetry, and performance work. Ultimately, I'm building a creative platform where all of those things can exist together while inspiring other young people to embrace who they are, express themselves, and not be afraid to create their own path."</p>
+  </div>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">What was the moment you decided to actually go for it?</p>
+    <p class="feature-a">"There wasn't one single moment. It was more like realizing that I kept waiting for somebody else to believe in me and in what I had been doing. I started building puppets when I was about six years old. From there, I began writing poetry, making music, creating characters, and coming up with different ideas. Eventually, I realized that if I kept waiting until I was older, more experienced, or simply waited for somebody to believe in me, I might never actually do anything. The idea for Draw It Out actually came from my art teacher at Detroit School of Arts. She suggested that I could use the puppets I had already built to create some kind of educational show. In the beginning, Draw It Out was more focused on teaching kids how to draw, which is where the name came from. But that changed after I started reading articles about literacy struggles and how many children have difficulty learning to read. I realized I could take something I was already passionate about, puppetry and art, and use it to address something that affects so many children. So I decided to start with what I had. I didn't have a huge production company or a big budget. I had puppets, ideas, creativity, and a willingness to create something that could make a difference."</p>
+  </div>
+
+  <div class="feature-pullquote will-appear">
+    <p>"I decided to start with what I had. That was enough for me to begin."</p>
+  </div>
+
+  <figure class="feature-figure will-appear">
+    <img src="../assets/justin_ward_bts.jpg" alt="Justin Ward on the set of Draw It Out">
+    <figcaption>On set of Draw It Out &nbsp;·&nbsp; Detroit</figcaption>
+  </figure>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">What does Detroit mean to your work?</p>
+    <p class="feature-a">"Detroit has given me the chance to do so many of the things I'm doing today, and I'll be forever grateful for that. Detroit has also taught me that you can build something out of almost nothing. There's a history here of people creating, rebuilding, experimenting, and finding their own way. That spirit shows up in my work. There are a lot of opportunities for young people in Detroit, and I want to take advantage of those while also creating more of them for other young artists. If I can, I'd love to help make Detroit the next Hollywood, not by trying to make it into something it isn't, but by building up the talent, stories, productions, and opportunities that already exist here. I want people to see that young artists from Detroit don't have to wait for an opportunity somewhere else to become successful."</p>
+  </div>
+
+  <figure class="feature-figure is-inset will-appear">
+    <img src="../assets/justin_ward_puppet.jpg" alt="A Draw It Out character surrounded by Justin Ward's artwork">
+    <figcaption>A Draw It Out character, at home in Justin's art</figcaption>
+  </figure>
+
+  <div class="feature-pullquote will-appear">
+    <p>"Being young doesn't mean you can't create something incredible. Sometimes it means you're willing to imagine something other people haven't thought of yet."</p>
+  </div>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">What's something people your age get wrong about what you do?</p>
+    <p class="feature-a">"I think people sometimes assume that because I'm young, I'm not capable of doing the things I'm able to do. Sometimes, because I'm a teenager, I feel like I get boxed in with the negative stereotypes people have about teenagers. And as a young Black person, there can also be assumptions about what I'm capable of. I don't think your age, your background, or other people's expectations should determine what you're capable of creating. I'm still learning. I make mistakes. I try things that don't work. But there's value in building while you're learning instead of waiting until you think you're perfect. People also sometimes see one part of what I do and assume that's all I am. I'm not just a puppeteer, a musician, a poet, or a fashion designer. I'm an artist who works across different mediums, and for me, all of those things are connected."</p>
+  </div>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">What's next? What does the near future look like for you?</p>
+    <p class="feature-a">"The immediate goal is to keep turning the ideas I've been developing into real projects. With Draw It Out, I'm working toward expanding the series, continuing production, and getting it in front of more families and educators. I'm also continuing to develop my fashion work, music, poetry, acting, and other performance projects. I don't want my future to be limited to being known as an extraordinary teenager. I want to grow into an adult artist with a long career. I want to play positive Black male characters, but I also want to be a comedian, make family shows, and tell stories. I believe there's a place for entertainment that can simply make people laugh or feel something, and at the same time, positive representation and meaningful stories are more important now than ever. I'm 17, so I know I have a lot left to learn. But I also know I have a lot of time to build."</p>
+  </div>
+
+  <div class="feature-nav will-appear">
+    <a href="david-woods.html">&larr; Previous Feature</a>
+    <a href="../features.html">All Features &rarr;</a>
+  </div>
+
+</article>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-logo"><img src="../assets/anf_wordmark.png" alt="A Near Future"></div>
+      <p class="footer-tagline">The next generation of leaders, builders, and visionaries.</p>
+    </div>
+    <div>
+      <p class="footer-col-title">Navigate</p>
+      <ul class="footer-links">
+        <li><a href="../features.html">Features</a></li>
+        <li><a href="../articles.html">Articles</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Nominate</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">More Features</p>
+      <ul class="footer-links">
+        <li><a href="david-woods.html">David Woods</a></li>
+        <li><a href="elijah-robinson.html">Elijah Robinson</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2026 A Near Future. All rights reserved.</p>
+    <p class="footer-copy">Detroit, Michigan</p>
+  </div>
+</footer>
+
+<!-- ANF NEWSLETTER SIGNUP CARD -->
+<div class="anf-news-card" id="anf-news-card">
+  <button class="anf-news-close" id="anf-news-close" aria-label="Close">&times;</button>
+  <img class="anf-news-mark" src="../assets/anf_logo_mark.png" alt="A Near Future">
+  <p class="anf-news-eyebrow">A Near Future</p>
+  <h2 class="anf-news-head">Join the list.</h2>
+  <p class="anf-news-sub">Monthly drops on the young builders, creatives, and founders shaping what's next. Free, no spam.</p>
+  <form class="anf-news-form" id="anf-news-form" name="newsletter-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="newsletter-signup">
+    <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+    <input type="email" class="anf-news-input" id="anf-news-email" name="email" placeholder="your@email.com" required autocomplete="email">
+    <button type="submit" class="anf-news-btn">Join &rarr;</button>
+  </form>
+  <p class="anf-news-error" id="anf-news-error"></p>
+  <p class="anf-news-success" id="anf-news-success">You're in. Check your inbox.</p>
+</div>
+
+<script src="../js/main.js"></script>
+<script src="../js/newsletter.js" defer></script>
+<script src="../js/anf-gate.js"></script>
+</body>
+</html>
