@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mia Murray is the founder of A.M. Brew and Bakery, a Metro Detroit mobile coffee and matcha cart with a menu inspired by iconic Black desserts. A Near Future feature.">
+  <title>Mia Murray - A Near Future</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/newsletter.css">
+  <style>
+    .feature-hero { min-height: 100svh; position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding-top: var(--nav-h); overflow: hidden; }
+    .feature-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 22%; }
+    .feature-hero-grad { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10,10,10,0.1) 0%, rgba(10,10,10,0) 25%, rgba(10,10,10,0.7) 65%, #0A0A0A 100%); }
+    .feature-hero-content { position: relative; z-index: 2; max-width: var(--max-w); margin: 0 auto; width: 100%; padding: 0 var(--pad) 72px; }
+    .feature-body { max-width: 720px; margin: 0 auto; padding: 80px var(--pad) 96px; }
+    .feature-intro { font-family: var(--font-serif); font-size: clamp(20px, 2.5vw, 26px); font-weight: 400; font-style: italic; line-height: 1.55; letter-spacing: -0.01em; color: var(--fg-mid); margin-bottom: 48px; padding-bottom: 48px; border-bottom: 0.5px solid var(--fg-dim); }
+    .feature-qa { margin-bottom: 56px; }
+    .feature-q { font-size: 10px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--fg-mid); margin-bottom: 18px; }
+    .feature-a { font-family: var(--font-serif); font-size: clamp(22px, 2.8vw, 30px); font-weight: 400; line-height: 1.45; letter-spacing: -0.01em; color: var(--fg); }
+    .feature-pullquote { border-left: 1px solid var(--fg-dim); padding: 8px 0 8px 32px; margin: 56px 0; }
+    .feature-pullquote p { font-family: var(--font-serif); font-size: clamp(26px, 3.5vw, 38px); font-weight: 400; font-style: italic; line-height: 1.25; letter-spacing: -0.02em; }
+    .feature-nav { display: flex; justify-content: space-between; align-items: center; padding: 40px 0; border-top: 0.5px solid var(--fg-dim); margin-top: 80px; }
+    .feature-nav a { font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--fg-mid); transition: color 0.2s; }
+    .feature-nav a:hover { color: var(--fg); }
+  </style>
+</head>
+<body>
+<!-- Netlify Forms detection (do not remove) -->
+<form name="anf-email-gate" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="email" name="email">
+  <input type="hidden" name="source">
+  <input type="hidden" name="date">
+  <input type="text" name="bot-field">
+</form>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../assets/anf_wordmark.png" alt="A Near Future"></a>
+    <div class="nav-links">
+      <a href="../features.html">Features</a>
+      <a href="../articles.html">Articles</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html" class="nav-cta">Nominate</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-drawer">
+  <a href="../features.html">Features</a>
+  <a href="../articles.html">Articles</a>
+  <a href="../about.html">About</a>
+  <a href="../contact.html">Nominate</a>
+</div>
+
+<!-- HERO -->
+<section class="feature-hero">
+  <img class="feature-hero-img" src="../assets/mia_murray.jpg" alt="Mia Murray">
+  <div class="feature-hero-grad"></div>
+  <div class="feature-hero-content">
+    <p class="will-appear" style="font-size:10px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--fg-mid);margin-bottom:20px;">Founder &amp; Maker &nbsp;·&nbsp; Metro Detroit</p>
+    <h1 class="will-appear d1" style="font-family:var(--font-serif);font-size:clamp(52px,9vw,120px);font-weight:700;line-height:0.91;letter-spacing:-0.03em;margin-bottom:24px;">Now or<br>Never.</h1>
+    <p class="will-appear d2" style="font-size:13px;font-weight:400;letter-spacing:0.15em;text-transform:uppercase;color:var(--fg-mid);">Mia Murray &nbsp;·&nbsp; Founder, A.M. Brew &amp; Bakery &nbsp;·&nbsp; Metro Detroit</p>
+  </div>
+</section>
+
+<!-- BODY -->
+<article class="feature-body">
+
+  <p class="feature-intro will-appear">Mia Murray builds her coffee out of memory. The founder of A.M. Brew and Bakery, a mobile coffee and matcha cart, she draws her menu from the iconic Black desserts she grew up loving. When her job shut down with zero placement, she decided it was now or never, and started building for real.</p>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">Who are you, and what are you building right now?</p>
+    <p class="feature-a">"My name is Mia and I'm building something that is quite special to me. I'm the owner of A.M. Brew and Bakery, a mobile coffee and matcha cart. What I adore the most about my business is that my menu is inspired by the iconic Black desserts I grew up loving."</p>
+  </div>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">What was the moment you decided to actually go for it?</p>
+    <p class="feature-a">"In the last year I made small steps toward my goal, but what lit a fire underneath me was my job shutting down. With zero placement for me, I decided it was now or never to truly start my business."</p>
+  </div>
+
+  <div class="feature-pullquote will-appear">
+    <p>"With zero placement for me, I decided it was now or never to truly start my business."</p>
+  </div>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">What does Metro Detroit mean to your work?</p>
+    <p class="feature-a">"Metro Detroit means everything to my work. The culture and community here are what shaped my ideas, and the people make me feel like whatever I want is achievable. There is no other place like Detroit."</p>
+  </div>
+
+  <div class="feature-pullquote will-appear">
+    <p>"There is no other place like Detroit."</p>
+  </div>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">What's something people get wrong about what you do?</p>
+    <p class="feature-a">"Some people think I just throw some espresso in a cup with a little syrup and milk, but no. I put so much more love and care into my drinks than that. I source my ingredients organically, locally, Black owned whenever I'm able to, and ethically. I take from my culture to find the flavor ideas that let me make something unique and delicious."</p>
+  </div>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">What's next? What does the near future look like for you?</p>
+    <p class="feature-a">"I'm just starting off, but I have so many ideas and so many avenues I want to take. First, I want to keep connecting with my community more and really focus on my craftsmanship, bringing my creativity to the forefront. Eventually, I would love to grow my current coffee cart into a brick and mortar."</p>
+  </div>
+
+  <div class="feature-nav will-appear">
+    <a href="justin-ward.html">&larr; Previous Feature</a>
+    <a href="../features.html">All Features &rarr;</a>
+  </div>
+
+</article>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-logo"><img src="../assets/anf_wordmark.png" alt="A Near Future"></div>
+      <p class="footer-tagline">The next generation of leaders, builders, and visionaries.</p>
+    </div>
+    <div>
+      <p class="footer-col-title">Navigate</p>
+      <ul class="footer-links">
+        <li><a href="../features.html">Features</a></li>
+        <li><a href="../articles.html">Articles</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Nominate</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">More Features</p>
+      <ul class="footer-links">
+        <li><a href="justin-ward.html">Justin Ward</a></li>
+        <li><a href="david-woods.html">David Woods</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2026 A Near Future. All rights reserved.</p>
+    <p class="footer-copy">Detroit, Michigan</p>
+  </div>
+</footer>
+
+<!-- ANF NEWSLETTER SIGNUP CARD -->
+<div class="anf-news-card" id="anf-news-card">
+  <button class="anf-news-close" id="anf-news-close" aria-label="Close">&times;</button>
+  <img class="anf-news-mark" src="../assets/anf_logo_mark.png" alt="A Near Future">
+  <p class="anf-news-eyebrow">A Near Future</p>
+  <h2 class="anf-news-head">Join the list.</h2>
+  <p class="anf-news-sub">Monthly drops on the young builders, creatives, and founders shaping what's next. Free, no spam.</p>
+  <form class="anf-news-form" id="anf-news-form" name="newsletter-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="newsletter-signup">
+    <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+    <input type="email" class="anf-news-input" id="anf-news-email" name="email" placeholder="your@email.com" required autocomplete="email">
+    <button type="submit" class="anf-news-btn">Join &rarr;</button>
+  </form>
+  <p class="anf-news-error" id="anf-news-error"></p>
+  <p class="anf-news-success" id="anf-news-success">You're in. Check your inbox.</p>
+</div>
+
+<script src="../js/main.js"></script>
+<script src="../js/newsletter.js" defer></script>
+<script src="../js/anf-gate.js"></script>
+</body>
+</html>
