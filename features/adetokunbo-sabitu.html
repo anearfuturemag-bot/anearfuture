@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Adetokunbo Sabitu is the solo founder and Chief Architect of LimitPixel, building a deterministic AI ecosystem from Houston. A Near Future feature.">
+  <title>Adetokunbo Sabitu - A Near Future</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/newsletter.css">
+  <style>
+    .feature-hero { min-height: 100svh; position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding-top: var(--nav-h); overflow: hidden; }
+    .feature-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+    .feature-hero-grad { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10,10,10,0.1) 0%, rgba(10,10,10,0) 25%, rgba(10,10,10,0.7) 65%, #0A0A0A 100%); }
+    .feature-hero-content { position: relative; z-index: 2; max-width: var(--max-w); margin: 0 auto; width: 100%; padding: 0 var(--pad) 72px; }
+    .feature-body { max-width: 720px; margin: 0 auto; padding: 80px var(--pad) 96px; }
+    .feature-intro { font-family: var(--font-serif); font-size: clamp(20px, 2.5vw, 26px); font-weight: 400; font-style: italic; line-height: 1.55; letter-spacing: -0.01em; color: var(--fg-mid); margin-bottom: 48px; padding-bottom: 48px; border-bottom: 0.5px solid var(--fg-dim); }
+    .feature-qa { margin-bottom: 56px; }
+    .feature-q { font-size: 10px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--fg-mid); margin-bottom: 18px; }
+    .feature-a { font-family: var(--font-serif); font-size: clamp(22px, 2.8vw, 30px); font-weight: 400; line-height: 1.45; letter-spacing: -0.01em; color: var(--fg); }
+    .feature-a + .feature-a { margin-top: 28px; }
+    .feature-pullquote { border-left: 1px solid var(--fg-dim); padding: 8px 0 8px 32px; margin: 56px 0; }
+    .feature-pullquote p { font-family: var(--font-serif); font-size: clamp(26px, 3.5vw, 38px); font-weight: 400; font-style: italic; line-height: 1.25; letter-spacing: -0.02em; }
+    .feature-nav { display: flex; justify-content: space-between; align-items: center; padding: 40px 0; border-top: 0.5px solid var(--fg-dim); margin-top: 80px; }
+    .feature-nav a { font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--fg-mid); transition: color 0.2s; }
+    .feature-nav a:hover { color: var(--fg); }
+    .feature-socials { margin-top: 72px; padding-top: 48px; border-top: 0.5px solid var(--fg-dim); }
+    .feature-socials-title { font-size: 10px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--fg-mid); margin-bottom: 32px; }
+    .feature-socials-cols { display: flex; gap: 64px; flex-wrap: wrap; }
+    .fs-label { font-family: var(--font-serif); font-size: 20px; font-style: italic; color: var(--fg); margin-bottom: 16px; }
+    .fs-links { display: flex; flex-direction: column; gap: 10px; }
+    .fs-links a { font-size: 13px; font-weight: 500; letter-spacing: 0.04em; color: var(--fg-mid); transition: color 0.2s; }
+    .fs-links a:hover { color: var(--fg); }
+  </style>
+</head>
+<body>
+<!-- Netlify Forms detection (do not remove) -->
+<form name="anf-email-gate" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="email" name="email">
+  <input type="hidden" name="source">
+  <input type="hidden" name="date">
+  <input type="text" name="bot-field">
+</form>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../assets/anf_wordmark.png" alt="A Near Future"></a>
+    <div class="nav-links">
+      <a href="../features.html">Features</a>
+      <a href="../articles.html">Articles</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html" class="nav-cta">Nominate</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-drawer">
+  <a href="../features.html">Features</a>
+  <a href="../articles.html">Articles</a>
+  <a href="../about.html">About</a>
+  <a href="../contact.html">Nominate</a>
+</div>
+
+<!-- HERO -->
+<section class="feature-hero">
+  <img class="feature-hero-img" src="../assets/adetokunbo_sabitu.jpg" alt="Adetokunbo Sabitu">
+  <div class="feature-hero-grad"></div>
+  <div class="feature-hero-content">
+    <p class="will-appear" style="font-size:10px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--fg-mid);margin-bottom:20px;">Founder &amp; AI &nbsp;·&nbsp; Houston</p>
+    <h1 class="will-appear d1" style="font-family:var(--font-serif);font-size:clamp(52px,9vw,120px);font-weight:700;line-height:0.91;letter-spacing:-0.03em;margin-bottom:24px;">Built<br>Alone.</h1>
+    <p class="will-appear d2" style="font-size:13px;font-weight:400;letter-spacing:0.15em;text-transform:uppercase;color:var(--fg-mid);">Adetokunbo Sabitu &nbsp;·&nbsp; Founder &amp; Chief Architect, LimitPixel &nbsp;·&nbsp; Houston</p>
+  </div>
+</section>
+
+<!-- BODY -->
+<article class="feature-body">
+
+  <p class="feature-intro will-appear">Adetokunbo Sabitu has been building since he was 13. The solo founder and self described Chief Architect of LimitPixel, he has spent five years building what he calls a deterministic AGI ecosystem, alone, on a low end laptop in Houston. His ambitions are enormous and his conviction is total. This is Adetokunbo, in his own words.</p>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">Who are you, and what are you building right now?</p>
+    <p class="feature-a">"My name is Adetokunbo Sabitu. I'm the solo founder and Chief Architect of LimitPixel, a deterministic AGI ecosystem built from the ground up over five years. I started building at 13, and I never stopped. I'm bringing Oren 1 to life, a deterministic AGI model with a 2.5M+ token context window. I also built a desktop application and CLI for automation, and a compression algorithm that achieves what I call 99% lossless compression with instant seek. That compression plays a critical role in autonomous vehicles, heavy graphics, and any field where massive files need to be retrieved and displayed instantly."</p>
+    <p class="feature-a">"I built a Digital Twin network that pays knowledge workers 90% of what their skills earn while they sleep. I also wanted more ways to give people additional income, so I built an affiliate program that pays affiliates 30% of the transaction every month via Stripe automatically, as long as the person remains subscribed. For entrepreneurs and founders, I built a web builder that lets you design a site for desktop, tablet, and mobile, from pre built templates or from scratch, manually or with AI, with no subscription required so users can build for free."</p>
+    <p class="feature-a">"Then I built LimitPixel Teams, which lets Pro to Enterprise tiers create a team, assign groups, pay directly through Stripe, and collaborate on a multi user web builder canvas with video and audio chat, group messaging, and shared cloud storage. All of it is unified into one platform that I built to replace the tools founders usually stitch together. I built this alone. On a low end laptop. In Houston. In silence."</p>
+  </div>
+
+  <div class="feature-pullquote will-appear">
+    <p>"I built this alone. On a low end laptop. In Houston. In silence."</p>
+  </div>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">What was the moment you decided to actually go for it?</p>
+    <p class="feature-a">"There was no single moment. It was a slow realization that I had been preparing my entire life. I started building games and software at 13. I led communities, shipped products, and sold assets before I could drive. When the AI boom hit, I saw the industry exploiting people's work and selling hype instead of using a principles first architecture to promote real productivity. I also looked at the stats on how many Black founders actually received funding from VCs, and it was only 0.4%. I knew I had to use everything I had to lead, build, and create solutions that actually serve people."</p>
+    <p class="feature-a">"My Digital Twin system was built to mitigate an economic collapse while paying people for their years of work experience instead of taking from them. That is the most responsible and ethical way to introduce AI to the world. I saw the world as it is: fragmented, exploitative, and full of people who had the talent but not the tools or the leadership. I decided to build the tools, and to be the leader I wish I had. That is when I matured my childhood company into LimitPixel, and I have not looked back."</p>
+  </div>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">What does Houston mean to your work?</p>
+    <p class="feature-a">"Houston is where I grew up. It is where I started building. It is where I sat on the floor with a low end laptop and built what they said was impossible. There is something about Houston that people do not always see. It is not Silicon Valley. There is no hype machine. There is no automatic validation. You have to earn everything. That forced me to build with discipline, with integrity, and without shortcuts. Houston shaped the way I build: quietly, relentlessly, and without permission."</p>
+  </div>
+
+  <div class="feature-pullquote will-appear">
+    <p>"Houston shaped the way I build: quietly, relentlessly, and without permission."</p>
+  </div>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">What's something people get wrong about what you do?</p>
+    <p class="feature-a">"People assume I'm just a coder, a web guy, or just an engineer. The truth, as I see it, is that I reverse engineered physics to build a world simulation model. I built a patented compression protocol I call Sabitu's Law. I brought graphics into the browser that I was told were impossible, without WebGPU or premade technology. My intelligence is not narrow. It is foundational. I build systems that simulate the physical world, automate the digital world, and pay people for their skills. People see the surface. They do not see the depth it takes to structure an entire infrastructure that can handle billions of users and orchestrate every system so it talks to the others dynamically."</p>
+  </div>
+
+  <div class="feature-qa will-appear">
+    <p class="feature-q">What's next? What does the near future look like for you?</p>
+    <p class="feature-a">"After Oren 1 launches, I am moving from digital infrastructure into physical infrastructure. I see my technology being implemented directly into autonomous vehicles, biomedical research, robotics, AR/VR glasses, and spatial computing. I plan to build spaces, like the Ion in Houston, where people can build, connect, and follow their passions just as they dreamed of as a kid."</p>
+    <p class="feature-a">"I have built everything alone so far, but I recognize the next phase requires a different kind of support. I am looking for partners who see the scale of what I have built and what I am building, and who want to help bring it to the world. I am not looking for a handout. I am looking for partners who can help me amplify what I have already built. I have not built a regular company. I am building a new way for people to work, create, and thrive. The future is deterministic, secure, and pays the people back."</p>
+  </div>
+
+  <div class="feature-socials will-appear">
+    <p class="feature-socials-title">Follow the work</p>
+    <div class="feature-socials-cols">
+      <div>
+        <p class="fs-label">Adetokunbo</p>
+        <div class="fs-links">
+          <a href="https://www.linkedin.com/in/adetokunbo-s-806411314/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://x.com/limit_pixel" target="_blank" rel="noopener">X (Twitter)</a>
+          <a href="https://www.instagram.com/king.tokunbo/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@kingtkbo" target="_blank" rel="noopener">TikTok</a>
+        </div>
+      </div>
+      <div>
+        <p class="fs-label">LimitPixel</p>
+        <div class="fs-links">
+          <a href="https://www.linkedin.com/company/limitpixel" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://x.com/leader_tokunbo" target="_blank" rel="noopener">X (Twitter)</a>
+          <a href="https://www.tiktok.com/@limitpixel" target="_blank" rel="noopener">TikTok</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="feature-nav will-appear">
+    <a href="mia-murray.html">&larr; Previous Feature</a>
+    <a href="../features.html">All Features &rarr;</a>
+  </div>
+
+</article>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-logo"><img src="../assets/anf_wordmark.png" alt="A Near Future"></div>
+      <p class="footer-tagline">The next generation of leaders, builders, and visionaries.</p>
+    </div>
+    <div>
+      <p class="footer-col-title">Navigate</p>
+      <ul class="footer-links">
+        <li><a href="../features.html">Features</a></li>
+        <li><a href="../articles.html">Articles</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Nominate</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">More Features</p>
+      <ul class="footer-links">
+        <li><a href="mia-murray.html">Mia Murray</a></li>
+        <li><a href="justin-ward.html">Justin Ward</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2026 A Near Future. All rights reserved.</p>
+    <p class="footer-copy">Detroit, Michigan</p>
+  </div>
+</footer>
+
+<!-- ANF NEWSLETTER SIGNUP CARD -->
+<div class="anf-news-card" id="anf-news-card">
+  <button class="anf-news-close" id="anf-news-close" aria-label="Close">&times;</button>
+  <img class="anf-news-mark" src="../assets/anf_logo_mark.png" alt="A Near Future">
+  <p class="anf-news-eyebrow">A Near Future</p>
+  <h2 class="anf-news-head">Join the list.</h2>
+  <p class="anf-news-sub">Monthly drops on the young builders, creatives, and founders shaping what's next. Free, no spam.</p>
+  <form class="anf-news-form" id="anf-news-form" name="newsletter-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="newsletter-signup">
+    <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+    <input type="email" class="anf-news-input" id="anf-news-email" name="email" placeholder="your@email.com" required autocomplete="email">
+    <button type="submit" class="anf-news-btn">Join &rarr;</button>
+  </form>
+  <p class="anf-news-error" id="anf-news-error"></p>
+  <p class="anf-news-success" id="anf-news-success">You're in. Check your inbox.</p>
+</div>
+
+<script src="../js/main.js"></script>
+<script src="../js/newsletter.js" defer></script>
+<script src="../js/anf-gate.js"></script>
+</body>
+</html>
