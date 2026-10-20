@@ -165,6 +165,23 @@
       position: absolute; inset: 0;
       background: linear-gradient(to right, #080808 0%, transparent 32%);
     }
+    @media (max-width: 768px) {
+      .hero-split {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .hero-split-right {
+        order: -1;
+        min-height: 85vw;
+      }
+      .hero-split-right::after {
+        background: linear-gradient(to bottom, transparent 40%, #080808 95%);
+      }
+      .hero-split-left {
+        padding: 28px 20px 56px;
+        gap: 28px;
+      }
+    }
     .hero-split-issue {
       font-size: 9px;
       font-weight: 300;
@@ -250,7 +267,7 @@
     </div>
   </div>
   <div class="hero-split-right">
-    <img src="assets/scottlynn_strong.jpg" alt="Scottlynn Strong" loading="eager">
+    <img src="assets/scottlynn_strong.jpg" alt="Scottlynn Strong" loading="eager" style="object-position: center 25%;">
   </div>
 </section>
 
