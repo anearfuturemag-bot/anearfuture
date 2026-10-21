@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Builders Board — A Near Future's open community for young entrepreneurs to share wins, ask for help, and connect with others building.">
+  <title>Builders Board — A Near Future</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* ── BOARD PAGE ── */
+    .board-hd {
+      padding-top: calc(var(--nav-h) + 64px);
+      padding-bottom: 48px;
+      border-bottom: 0.5px solid var(--fg-dim);
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding-left: var(--pad);
+      padding-right: var(--pad);
+    }
+    .board-eyebrow {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--fg-mid);
+      margin-bottom: 16px;
+    }
+    .board-title {
+      font-family: var(--font-serif);
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .board-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--fg-mid);
+      max-width: 520px;
+      line-height: 1.65;
+    }
+    .board-controls {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 28px var(--pad);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      border-bottom: 0.5px solid var(--fg-dim);
+    }
+    .board-filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      border: 0.5px solid var(--fg-dim);
+      background: transparent;
+      color: var(--fg-mid);
+      cursor: pointer;
+      transition: all 0.18s;
+      font-family: var(--font-sans);
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      border-color: var(--fg);
+      color: var(--fg);
+      background: rgba(245,243,238,0.05);
+    }
+    .post-btn {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 10px 24px;
+      background: var(--fg);
+      color: var(--bg);
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: opacity 0.18s;
+      white-space: nowrap;
+    }
+    .post-btn:hover { opacity: 0.85; }
+
+    /* ── FEED ── */
+    .board-feed {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--pad) 96px;
+    }
+    .board-empty {
+      padding: 80px 0;
+      text-align: center;
+      color: var(--fg-mid);
+      font-size: 14px;
+      font-weight: 300;
+      display: none;
+    }
+    .board-loading {
+      padding: 80px 0;
+      text-align: center;
+      color: var(--fg-mid);
+      font-size: 14px;
+      font-weight: 300;
+    }
+
+    /* ── POST CARD ── */
+    .post-card {
+      border-bottom: 0.5px solid var(--fg-dim);
+      padding: 32px 0;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .post-card:hover { opacity: 0.85; }
+    .post-card-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .post-cat {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border: 0.5px solid currentColor;
+    }
+    .cat-help   { color: #e07b54; }
+    .cat-win    { color: #7bbf8f; }
+    .cat-looking{ color: #7ba8bf; }
+    .cat-thought{ color: #b07bbf; }
+
+    .post-author {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--fg-mid);
+      letter-spacing: 0.05em;
+    }
+    .post-author span {
+      color: var(--fg-faint);
+      font-weight: 300;
+    }
+    .post-time {
+      margin-left: auto;
+      font-size: 10px;
+      font-weight: 300;
+      color: var(--fg-faint);
+      white-space: nowrap;
+    }
+    .post-content {
+      font-family: var(--font-serif);
+      font-size: clamp(17px, 2vw, 21px);
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+      color: var(--fg);
+      margin-bottom: 16px;
+    }
+    .post-footer {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .comment-count {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fg-mid);
+    }
+    .expand-hint {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+    }
+
+    /* ── EXPANDED POST ── */
+    .post-expanded {
+      background: rgba(245,243,238,0.03);
+      border: 0.5px solid var(--fg-dim);
+      margin: 0 0 2px;
+      padding: 32px;
+      display: none;
+    }
+    .post-expanded.open { display: block; }
+    .post-full-content {
+      font-family: var(--font-serif);
+      font-size: clamp(18px, 2vw, 22px);
+      font-weight: 400;
+      line-height: 1.55;
+      color: var(--fg);
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 0.5px solid var(--fg-dim);
+    }
+    .comments-section { }
+    .comments-title {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--fg-mid);
+      margin-bottom: 28px;
+    }
+    .comment-item {
+      padding: 20px 0;
+      border-bottom: 0.5px solid var(--fg-dim);
+    }
+    .comment-item:last-of-type { border-bottom: none; }
+    .comment-author {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fg-mid);
+      margin-bottom: 8px;
+    }
+    .comment-body {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--fg);
+    }
+    .comment-time {
+      font-size: 10px;
+      color: var(--fg-faint);
+      margin-top: 6px;
+    }
+    .comment-form {
+      margin-top: 28px;
+      padding-top: 28px;
+      border-top: 0.5px solid var(--fg-dim);
+    }
+    .comment-input {
+      width: 100%;
+      background: transparent;
+      border: 0.5px solid var(--fg-dim);
+      color: var(--fg);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 300;
+      padding: 14px 16px;
+      resize: vertical;
+      min-height: 80px;
+      margin-bottom: 12px;
+      box-sizing: border-box;
+      transition: border-color 0.18s;
+    }
+    .comment-input::placeholder { color: var(--fg-faint); }
+    .comment-input:focus { outline: none; border-color: var(--fg-mid); }
+    .comment-submit {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 10px 24px;
+      background: var(--fg);
+      color: var(--bg);
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: opacity 0.18s;
+    }
+    .comment-submit:hover { opacity: 0.85; }
+    .comment-submit:disabled { opacity: 0.4; cursor: default; }
+    .no-comments {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--fg-faint);
+      padding: 12px 0;
+    }
+
+    /* ── MODALS ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(8,8,8,0.88);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .modal {
+      background: #111;
+      border: 0.5px solid var(--fg-dim);
+      padding: 48px;
+      width: 100%;
+      max-width: 560px;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .modal-title {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .modal-sub {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--fg-mid);
+      margin-bottom: 36px;
+      line-height: 1.6;
+    }
+    .modal-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--fg-mid);
+      display: block;
+      margin-bottom: 8px;
+    }
+    .modal-input,
+    .modal-textarea,
+    .modal-select {
+      width: 100%;
+      background: transparent;
+      border: 0.5px solid var(--fg-dim);
+      color: var(--fg);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 300;
+      padding: 12px 14px;
+      margin-bottom: 24px;
+      box-sizing: border-box;
+      transition: border-color 0.18s;
+      -webkit-appearance: none;
+    }
+    .modal-textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .modal-select option { background: #111; color: var(--fg); }
+    .modal-input::placeholder,
+    .modal-textarea::placeholder { color: var(--fg-faint); }
+    .modal-input:focus,
+    .modal-textarea:focus,
+    .modal-select:focus { outline: none; border-color: var(--fg-mid); }
+    .modal-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .modal-cancel {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--fg-mid);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: color 0.18s;
+    }
+    .modal-cancel:hover { color: var(--fg); }
+    .modal-submit {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 12px 32px;
+      background: var(--fg);
+      color: var(--bg);
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: opacity 0.18s;
+    }
+    .modal-submit:hover { opacity: 0.85; }
+    .modal-submit:disabled { opacity: 0.4; cursor: default; }
+    .char-count {
+      font-size: 10px;
+      color: var(--fg-faint);
+      text-align: right;
+      margin-top: -20px;
+      margin-bottom: 24px;
+    }
+
+    /* ── IDENTITY PROMPT ── */
+    .identity-note {
+      font-size: 11px;
+      font-weight: 300;
+      color: var(--fg-faint);
+      margin-top: -16px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .modal { padding: 32px 24px; }
+      .board-controls { gap: 12px; }
+      .post-expanded { padding: 24px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="assets/anf_wordmark.png" alt="A Near Future"></a>
+    <div class="nav-links">
+      <a href="features.html">Features</a>
+      <a href="articles.html">Articles</a>
+      <a href="builders-board.html" class="active" style="color:var(--fg)">Builders Board</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="nav-cta">Nominate</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-drawer">
+  <a href="features.html">Features</a>
+  <a href="articles.html">Articles</a>
+  <a href="builders-board.html">Builders Board</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Nominate</a>
+</div>
+
+<!-- HEADER -->
+<div class="board-hd">
+  <p class="board-eyebrow">Community</p>
+  <h1 class="board-title">Builders<br>Board.</h1>
+  <p class="board-sub">A space for young builders to share wins, ask for help, and connect with others doing the work. No followers. No algorithm. Just real conversations.</p>
+</div>
+
+<!-- CONTROLS -->
+<div class="board-controls">
+  <div class="board-filters">
+    <button class="filter-btn active" data-cat="all">All</button>
+    <button class="filter-btn" data-cat="help">Ask for Help</button>
+    <button class="filter-btn" data-cat="win">Share a Win</button>
+    <button class="filter-btn" data-cat="looking">Looking For</button>
+    <button class="filter-btn" data-cat="thought">On My Mind</button>
+  </div>
+  <button class="post-btn" id="openPostModal">Start a Thread</button>
+</div>
+
+<!-- FEED -->
+<div class="board-feed">
+  <div class="board-loading" id="boardLoading">Loading threads...</div>
+  <div class="board-empty" id="boardEmpty">No threads yet. Be the first to start one.</div>
+  <div id="postFeed"></div>
+</div>
+
+<!-- POST MODAL -->
+<div class="modal-overlay" id="postModal">
+  <div class="modal">
+    <h2 class="modal-title">Start a Thread</h2>
+    <p class="modal-sub">Say what's on your mind. This is your space.</p>
+
+    <div id="identitySection">
+      <label class="modal-label">Your Name *</label>
+      <input class="modal-input" id="inputName" type="text" placeholder="First name or full name" maxlength="60">
+
+      <label class="modal-label">What are you building? <span style="opacity:.4;font-weight:300;text-transform:none;letter-spacing:0">(optional)</span></label>
+      <input class="modal-input" id="inputBuilding" type="text" placeholder="e.g. a streetwear brand, a tech app, a nonprofit..." maxlength="80">
+
+      <label class="modal-label">Your City <span style="opacity:.4;font-weight:300;text-transform:none;letter-spacing:0">(optional)</span></label>
+      <input class="modal-input" id="inputCity" type="text" placeholder="e.g. Detroit" maxlength="40">
+
+      <p class="identity-note">Your name will show on all your posts and comments. We don't require an account.</p>
+    </div>
+
+    <label class="modal-label">Category *</label>
+    <select class="modal-select" id="inputCat">
+      <option value="">Select one...</option>
+      <option value="help">Ask for Help</option>
+      <option value="win">Share a Win</option>
+      <option value="looking">Looking For</option>
+      <option value="thought">On My Mind</option>
+    </select>
+
+    <label class="modal-label">Your Thread *</label>
+    <textarea class="modal-textarea" id="inputContent" placeholder="What's going on? Be specific — the more real you are, the more useful the responses." maxlength="800"></textarea>
+    <div class="char-count"><span id="charCount">0</span> / 800</div>
+
+    <div class="modal-footer">
+      <button class="modal-cancel" id="closePostModal">Cancel</button>
+      <button class="modal-submit" id="submitPost">Post Thread</button>
+    </div>
+  </div>
+</div>
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+<script>
+// ── Firebase config ──
+const firebaseConfig = {
+  apiKey: "AIzaSyCe6KldiOg2B4LZJNb_wd0g4eC3cJnDiGs",
+  authDomain: "anearfuture-bb89b.firebaseapp.com",
+  projectId: "anearfuture-bb89b",
+  storageBucket: "anearfuture-bb89b.firebasestorage.app",
+  messagingSenderId: "511054412418",
+  appId: "1:511054412418:web:9650b5c837aeac0320129b"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+// ── State ──
+let currentFilter = 'all';
+let posts = [];
+let profile = JSON.parse(localStorage.getItem('anf_builder_profile') || 'null');
+let expandedPostId = null;
+let unsubscribe = null;
+
+// ── Category helpers ──
+const catLabel = { help: 'Ask for Help', win: 'Share a Win', looking: 'Looking For', thought: 'On My Mind' };
+const catClass = { help: 'cat-help', win: 'cat-win', looking: 'cat-looking', thought: 'cat-thought' };
+
+function timeAgo(ts) {
+  if (!ts) return '';
+  const now = Date.now();
+  const then = ts.toMillis ? ts.toMillis() : ts;
+  const diff = Math.floor((now - then) / 1000);
+  if (diff < 60) return 'just now';
+  if (diff < 3600) return Math.floor(diff / 60) + 'm ago';
+  if (diff < 86400) return Math.floor(diff / 3600) + 'h ago';
+  if (diff < 604800) return Math.floor(diff / 86400) + 'd ago';
+  return new Date(then).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+}
+
+function escHtml(str) {
+  return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Render feed ──
+function renderFeed() {
+  const feed = document.getElementById('postFeed');
+  const empty = document.getElementById('boardEmpty');
+  const loading = document.getElementById('boardLoading');
+
+  loading.style.display = 'none';
+
+  const filtered = currentFilter === 'all' ? posts : posts.filter(p => p.category === currentFilter);
+
+  if (filtered.length === 0) {
+    empty.style.display = 'block';
+    feed.innerHTML = '';
+    return;
+  }
+  empty.style.display = 'none';
+
+  feed.innerHTML = filtered.map(post => {
+    const isExpanded = expandedPostId === post.id;
+    const authorLine = post.authorBuilding
+      ? `${escHtml(post.authorName)} <span>· ${escHtml(post.authorBuilding)}${post.authorCity ? ', ' + escHtml(post.authorCity) : ''}</span>`
+      : `${escHtml(post.authorName)}${post.authorCity ? ` <span>· ${escHtml(post.authorCity)}</span>` : ''}`;
+
+    return `
+      <div class="post-card" data-id="${post.id}" onclick="togglePost('${post.id}')">
+        <div class="post-card-top">
+          <span class="post-cat ${catClass[post.category] || ''}">${catLabel[post.category] || post.category}</span>
+          <span class="post-author">${authorLine}</span>
+          <span class="post-time">${timeAgo(post.timestamp)}</span>
+        </div>
+        <p class="post-content">${escHtml(post.content)}</p>
+        <div class="post-footer">
+          <span class="comment-count" id="cc-${post.id}">${post.commentCount ? post.commentCount + ' comment' + (post.commentCount !== 1 ? 's' : '') : 'No comments yet'}</span>
+          <span class="expand-hint">${isExpanded ? 'Collapse' : 'Read &amp; Reply'} &rarr;</span>
+        </div>
+      </div>
+      <div class="post-expanded ${isExpanded ? 'open' : ''}" id="expanded-${post.id}">
+        <p class="post-full-content">${escHtml(post.content)}</p>
+        <div class="comments-section">
+          <p class="comments-title">Comments</p>
+          <div id="comments-${post.id}"><p class="no-comments">Loading...</p></div>
+          <div class="comment-form">
+            <textarea class="comment-input" id="commentInput-${post.id}" placeholder="Add your reply..." maxlength="500" rows="3"></textarea>
+            <button class="comment-submit" onclick="submitComment(event, '${post.id}')">Post Reply</button>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// ── Toggle expand ──
+function togglePost(id) {
+  if (expandedPostId === id) {
+    expandedPostId = null;
+  } else {
+    expandedPostId = id;
+    setTimeout(() => loadComments(id), 50);
+  }
+  renderFeed();
+  if (expandedPostId) {
+    setTimeout(() => loadComments(expandedPostId), 50);
+  }
+}
+
+// ── Load comments ──
+const commentListeners = {};
+function loadComments(postId) {
+  if (commentListeners[postId]) return;
+  const container = document.getElementById('comments-' + postId);
+  if (!container) return;
+
+  commentListeners[postId] = db.collection('posts').doc(postId).collection('comments')
+    .orderBy('timestamp', 'asc')
+    .onSnapshot(snap => {
+      const countEl = document.getElementById('cc-' + postId);
+      const count = snap.docs.length;
+      if (countEl) countEl.textContent = count ? count + ' comment' + (count !== 1 ? 's' : '') : 'No comments yet';
+
+      const c = document.getElementById('comments-' + postId);
+      if (!c) return;
+      if (snap.empty) {
+        c.innerHTML = '<p class="no-comments">No replies yet. Be the first.</p>';
+        return;
+      }
+      c.innerHTML = snap.docs.map(d => {
+        const data = d.data();
+        return `
+          <div class="comment-item">
+            <p class="comment-author">${escHtml(data.authorName)}</p>
+            <p class="comment-body">${escHtml(data.content)}</p>
+            <p class="comment-time">${timeAgo(data.timestamp)}</p>
+          </div>
+        `;
+      }).join('');
+    }, err => {
+      const c = document.getElementById('comments-' + postId);
+      if (c) c.innerHTML = '<p class="no-comments">Could not load replies.</p>';
+    });
+}
+
+// ── Submit comment ──
+function submitComment(e, postId) {
+  e.stopPropagation();
+  if (!profile) { openPostModalFn(); return; }
+
+  const input = document.getElementById('commentInput-' + postId);
+  const btn = e.target;
+  const content = input.value.trim();
+  if (!content) return;
+
+  if (!cleanContent(content)) {
+    alert('Your reply contains language that isn\'t allowed on the Builders Board. Please revise it.');
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Posting...';
+
+  db.collection('posts').doc(postId).collection('comments').add({
+    authorName: profile.name,
+    content: content,
+    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+  }).then(() => {
+    input.value = '';
+    btn.disabled = false;
+    btn.textContent = 'Post Reply';
+  }).catch(() => {
+    btn.disabled = false;
+    btn.textContent = 'Post Reply';
+    alert('Could not post reply. Try again.');
+  });
+}
+
+// ── Word filter (client-side layer 1) ──
+const BLOCKED = [
+  'nigger','nigga','faggot','chink','kike','spic','wetback',
+  'cunt','whore','retard','tranny','dyke','cracker',
+  'kill yourself','kys','go die','i will kill'
+];
+function cleanContent(text) {
+  const lower = text.toLowerCase().replace(/[^a-z\s]/g, c => ({
+    '@':'a','3':'e','1':'i','0':'o','$':'s','!':'i','4':'a'
+  }[c] || ''));
+  return !BLOCKED.some(w => lower.includes(w));
+}
+
+// ── Live feed listener — only approved posts ──
+function startFeed() {
+  if (unsubscribe) unsubscribe();
+  let query = db.collection('posts')
+    .where('approved', '==', true)
+    .orderBy('timestamp', 'desc')
+    .limit(50);
+  unsubscribe = query.onSnapshot(snap => {
+    posts = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    renderFeed();
+  }, err => {
+    document.getElementById('boardLoading').textContent = 'Could not connect. Check your connection.';
+  });
+}
+
+// ── Filters ──
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = btn.dataset.cat;
+    expandedPostId = null;
+    renderFeed();
+  });
+});
+
+// ── Post modal ──
+const postModal = document.getElementById('postModal');
+const identitySection = document.getElementById('identitySection');
+
+function openPostModalFn() {
+  // Pre-fill if profile exists
+  if (profile) {
+    identitySection.style.display = 'none';
+  } else {
+    identitySection.style.display = 'block';
+  }
+  postModal.classList.add('open');
+  if (!profile) {
+    document.getElementById('inputName').focus();
+  } else {
+    document.getElementById('inputCat').focus();
+  }
+}
+
+function closePostModalFn() {
+  postModal.classList.remove('open');
+  document.getElementById('inputContent').value = '';
+  document.getElementById('inputCat').value = '';
+  document.getElementById('charCount').textContent = '0';
+}
+
+document.getElementById('openPostModal').addEventListener('click', openPostModalFn);
+document.getElementById('closePostModal').addEventListener('click', closePostModalFn);
+postModal.addEventListener('click', e => { if (e.target === postModal) closePostModalFn(); });
+
+document.getElementById('inputContent').addEventListener('input', function() {
+  document.getElementById('charCount').textContent = this.value.length;
+});
+
+document.getElementById('submitPost').addEventListener('click', function() {
+  const nameEl = document.getElementById('inputName');
+  const buildingEl = document.getElementById('inputBuilding');
+  const cityEl = document.getElementById('inputCity');
+  const catEl = document.getElementById('inputCat');
+  const contentEl = document.getElementById('inputContent');
+
+  // Validate identity
+  if (!profile) {
+    const name = nameEl.value.trim();
+    if (!name) { nameEl.focus(); return; }
+    profile = {
+      name: name,
+      building: buildingEl.value.trim(),
+      city: cityEl.value.trim()
+    };
+    localStorage.setItem('anf_builder_profile', JSON.stringify(profile));
+  }
+
+  const cat = catEl.value;
+  const content = contentEl.value.trim();
+  if (!cat) { catEl.focus(); return; }
+  if (!content) { contentEl.focus(); return; }
+
+  // Client-side word filter (layer 1)
+  if (!cleanContent(content) || !cleanContent(profile.name)) {
+    alert('Your post contains language that isn\'t allowed on the Builders Board. Please revise it.');
+    return;
+  }
+
+  this.disabled = true;
+  this.textContent = 'Posting...';
+
+  const postData = {
+    authorName: profile.name,
+    authorBuilding: profile.building || '',
+    authorCity: profile.city || '',
+    category: cat,
+    content: content,
+    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    approved: false   // goes to approval queue — admin flips to true in Firebase console
+  };
+
+  db.collection('posts').add(postData).then(() => {
+    closePostModalFn();
+    this.disabled = false;
+    this.textContent = 'Post Thread';
+    // Show pending message
+    const feed = document.getElementById('postFeed');
+    const note = document.createElement('div');
+    note.style.cssText = 'padding:24px 0;font-size:13px;font-weight:300;color:var(--fg-mid);border-bottom:0.5px solid var(--fg-dim)';
+    note.textContent = 'Your thread is pending review and will appear on the board shortly.';
+    feed.insertBefore(note, feed.firstChild);
+    setTimeout(() => note.remove(), 8000);
+  }).catch(() => {
+    this.disabled = false;
+    this.textContent = 'Post Thread';
+    alert('Could not post. Try again.');
+  });
+});
+
+// ── Nav hamburger (reuse main.css logic) ──
+const ham = document.querySelector('.nav-hamburger');
+const drawer = document.querySelector('.nav-drawer');
+if (ham && drawer) {
+  ham.addEventListener('click', () => {
+    const open = ham.getAttribute('aria-expanded') === 'true';
+    ham.setAttribute('aria-expanded', String(!open));
+    drawer.classList.toggle('open', !open);
+  });
+}
+
+// ── Boot ──
+startFeed();
+</script>
+</body>
+</html>

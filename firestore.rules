@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Layer 2 — server-side content check (backs up the client-side filter)
+    function noHate(s) {
+      return s is string && s.size() <= 1000 &&
+        !s.lower().matches('(?s).*(nigger|nigga|faggot|chink|kike|spic|wetback|cunt|retard|tranny|kys|kill yourself|go die).*');
+    }
+
+    match /posts/{postId} {
+      // Public only sees approved posts (layer 3 — approval queue)
+      allow read: if resource.data.approved == true;
+
+      // Anyone can submit — must pass filter, must start unapproved, size-capped
+      allow create: if noHate(request.resource.data.content)
+                    && noHate(request.resource.data.authorName)
+                    && request.resource.data.content.size() <= 800
+                    && request.resource.data.authorName.size() <= 60
+                    && request.resource.data.approved == false;
+
+      // Nobody edits or deletes from the site — you do that in the Firebase console
+      allow update, delete: if false;
+
+      match /comments/{commentId} {
+        allow read: if true;
+        allow create: if noHate(request.resource.data.content)
+                      && noHate(request.resource.data.authorName)
+                      && request.resource.data.content.size() <= 500
+                      && request.resource.data.authorName.size() <= 60;
+        allow update, delete: if false;
+      }
+    }
+  }
+}
