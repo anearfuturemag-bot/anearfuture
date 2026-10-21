@@ -585,7 +585,7 @@ function renderFeed() {
         </div>
         <p class="post-content">${escHtml(post.content)}</p>
         <div class="post-footer">
-          <span class="comment-count" id="cc-${post.id}">${post.commentCount ? post.commentCount + ' comment' + (post.commentCount !== 1 ? 's' : '') : 'No comments yet'}</span>
+          <span class="comment-count" id="cc-${post.id}">...</span>
           <span class="expand-hint">${isExpanded ? 'Collapse' : 'Read &amp; Reply'} &rarr;</span>
         </div>
       </div>
@@ -602,6 +602,21 @@ function renderFeed() {
       </div>
     `;
   }).join('');
+
+  // Load accurate comment counts for all visible cards
+  loadCommentCounts(filtered);
+}
+
+// ── Load comment counts for all visible cards ──
+function loadCommentCounts(postList) {
+  postList.forEach(post => {
+    db.collection('posts').doc(post.id).collection('comments').get().then(snap => {
+      const el = document.getElementById('cc-' + post.id);
+      if (!el) return;
+      const count = snap.size;
+      el.textContent = count ? count + ' comment' + (count !== 1 ? 's' : '') : 'No comments yet';
+    });
+  });
 }
 
 // ── Toggle expand ──
