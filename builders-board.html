@@ -700,15 +700,16 @@ function cleanContent(text) {
   return !BLOCKED.some(w => lower.includes(w));
 }
 
-// ── Live feed listener — only approved posts ──
+// ── Live feed listener — fetch recent, filter approved client-side ──
 function startFeed() {
   if (unsubscribe) unsubscribe();
   let query = db.collection('posts')
-    .where('approved', '==', true)
     .orderBy('timestamp', 'desc')
-    .limit(50);
+    .limit(100);
   unsubscribe = query.onSnapshot(snap => {
-    posts = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    posts = snap.docs
+      .map(d => ({ id: d.id, ...d.data() }))
+      .filter(p => p.approved === true);
     renderFeed();
   }, err => {
     document.getElementById('boardLoading').textContent = 'Could not connect. Check your connection.';
