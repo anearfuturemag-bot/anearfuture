@@ -24,6 +24,22 @@
     .article-nav a { font-size:10px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--fg-mid); transition:color 0.2s; }
     .article-nav a:hover { color: var(--fg); }
   </style>
+  <link rel="canonical" href="https://anearfuture.org/articles/audiojack-music-fest-2026.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#080808">
+  <meta property="og:site_name" content="A Near Future">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="The Talent Is Here. The Stage Usually Isn't. AudioJack Fixes That.">
+  <meta property="og:description" content="We Are Culture Creators built AudioJack Music Fest to put Detroit's underground under one roof. JMSN headlines more than 50 artists across four stages at Lincoln Factory on August 29.">
+  <meta property="og:url" content="https://anearfuture.org/articles/audiojack-music-fest-2026.html">
+  <meta property="og:image" content="https://anearfuture.org/assets/og-default.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Talent Is Here. The Stage Usually Isn't. AudioJack Fixes That.">
+  <meta name="twitter:description" content="We Are Culture Creators built AudioJack Music Fest to put Detroit's underground under one roof. JMSN headlines more than 50 artists across four stages at Lincoln Factory on August 29.">
+  <meta name="twitter:image" content="https://anearfuture.org/assets/og-default.jpg">
+  <script data-goatcounter="https://anearfuture.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <link rel="stylesheet" href="../css/newsletter.css">
 </head>
 <body>
 
@@ -88,6 +104,16 @@
 
 </article>
 
+<!-- ANF FOLLOW -->
+<section class="anf-follow">
+  <p class="anf-follow-eyebrow">Follow A Near Future</p>
+  <p class="anf-follow-line">New Detroit builders, every week.</p>
+  <div class="anf-follow-links">
+    <a href="https://www.instagram.com/anfmagazine/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.tiktok.com/@anfmagazine" target="_blank" rel="noopener">TikTok</a>
+  </div>
+</section>
+
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-brand">
@@ -113,6 +139,7 @@
     </div>
   </div>
   <div class="footer-bottom">
+    <p class="footer-copy footer-social"><a href="https://www.instagram.com/anfmagazine/" target="_blank" rel="noopener">Instagram</a> &nbsp;·&nbsp; <a href="https://www.tiktok.com/@anfmagazine" target="_blank" rel="noopener">TikTok</a></p>
     <p class="footer-copy">&copy; 2026 A Near Future. All rights reserved.</p>
     <p class="footer-copy">Detroit, Michigan</p>
   </div>
@@ -124,5 +151,23 @@
 </form>
 <script src="../js/newsletter.js" defer></script>
 <script src="../js/anf-gate.js"></script>
+
+<!-- ANF NEWSLETTER SIGNUP CARD -->
+<div class="anf-news-card" id="anf-news-card">
+  <button class="anf-news-close" id="anf-news-close" aria-label="Close">&times;</button>
+  <img class="anf-news-mark" src="../assets/anf_logo_mark.png" alt="A Near Future">
+  <p class="anf-news-eyebrow">A Near Future</p>
+  <h2 class="anf-news-head">Join the list.</h2>
+  <p class="anf-news-sub">Monthly drops on the young builders, creatives, and founders shaping what's next. Free, no spam.</p>
+  <form class="anf-news-form" id="anf-news-form" name="newsletter-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="newsletter-signup">
+    <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+    <input type="email" class="anf-news-input" id="anf-news-email" name="email" placeholder="your@email.com" required autocomplete="email">
+    <button type="submit" class="anf-news-btn">Join &rarr;</button>
+  </form>
+  <p class="anf-news-error" id="anf-news-error"></p>
+  <p class="anf-news-success" id="anf-news-success">You're in. Check your inbox.</p>
+</div>
+
 </body>
 </html>

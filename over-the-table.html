@@ -59,7 +59,26 @@
     @media (max-width: 768px) {
       .pod-hero-inner { grid-template-columns: 1fr; gap: 36px; }
     }
+    .ott-waitlist { display:flex; gap:10px; flex-wrap:wrap; max-width:440px; }
+    .ott-input { flex:1 1 220px; background:transparent; border:0.5px solid rgba(245,243,238,0.25); color:var(--fg); padding:14px 16px; font-family:var(--font-sans); font-size:13px; }
+    .ott-input:focus { outline:none; border-color:var(--fg); }
+    .ott-btn { background:var(--fg); color:#080808; border:none; padding:14px 22px; font-size:10px; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; cursor:pointer; font-family:var(--font-sans); }
   </style>
+  <link rel="canonical" href="https://anearfuture.org/over-the-table.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#080808">
+  <meta property="og:site_name" content="A Near Future">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Over The Table">
+  <meta property="og:description" content="Over The Table  -  A Near Future Podcast. Real conversations with young people building real things.">
+  <meta property="og:url" content="https://anearfuture.org/over-the-table.html">
+  <meta property="og:image" content="https://anearfuture.org/assets/myles_cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Over The Table">
+  <meta name="twitter:description" content="Over The Table  -  A Near Future Podcast. Real conversations with young people building real things.">
+  <meta name="twitter:image" content="https://anearfuture.org/assets/myles_cover.jpg">
+  <script data-goatcounter="https://anearfuture.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 
@@ -70,7 +89,8 @@
     <div class="nav-links">
       <a href="features.html">Features</a>
       <a href="articles.html">Articles</a>
-      <a href="builders-board.html">Builders Board</a>      <a href="over-the-table.html">Over The Table</a>
+  <a href="builders-board.html">Builders Board</a>
+  <a href="over-the-table.html">Over The Table</a>
       <a href="about.html">About</a>
       <a href="contact.html" class="nav-cta">Nominate</a>
     </div>
@@ -82,7 +102,8 @@
 <div class="nav-drawer">
   <a href="features.html">Features</a>
   <a href="articles.html">Articles</a>
-      <a href="builders-board.html">Builders Board</a>  <a href="over-the-table.html">Over The Table</a>
+  <a href="builders-board.html">Builders Board</a>
+  <a href="over-the-table.html">Over The Table</a>
   <a href="about.html">About</a>
   <a href="contact.html">Nominate</a>
 </div>
@@ -100,11 +121,14 @@
       <p style="font-size:9px;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:var(--fg-mid);margin-bottom:20px;">A Near Future · Podcast</p>
       <h1 style="font-family:var(--font-serif);font-size:clamp(44px,7vw,88px);font-weight:700;line-height:0.92;letter-spacing:-0.03em;margin-bottom:24px;">Over The<br><em>Table.</em></h1>
       <p style="font-size:15px;font-weight:300;line-height:1.75;color:var(--fg-mid);max-width:440px;margin-bottom:0;">Real conversations with young people building real things. No curated answers. No filters. Just what it actually takes to build a near future  -  over the table.</p>
-      <div class="pod-listen-links">
-        <a href="#" class="pod-listen-btn">Apple Podcasts</a>
-        <a href="#" class="pod-listen-btn">Spotify</a>
-        <a href="#" class="pod-listen-btn">YouTube</a>
-      </div>
+      <p style="font-size:9px;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:var(--fg-mid);margin:36px 0 14px;">Launching soon. Get the first episode first.</p>
+      <form class="ott-waitlist" name="ott-waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/over-the-table.html?joined=1">
+        <input type="hidden" name="form-name" value="ott-waitlist">
+        <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+        <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" class="ott-input">
+        <button type="submit" class="ott-btn">Notify me &rarr;</button>
+      </form>
+      <p class="ott-joined" style="display:none;font-size:12px;color:var(--fg-mid);margin-top:14px;">You're on the list. We'll email you when episode one drops.</p>
     </div>
   </div>
 </section>
@@ -127,72 +151,15 @@
   </div>
 </div>
 
-<!-- ══ EPISODE GRID ═══════════════════════════ -->
+<!-- ══ COMING SOON ═══════════════════════════ -->
 <section class="section">
   <div class="container">
-    <div class="section-hd will-appear">
-      <h2 class="section-hd-title">All Episodes</h2>
+    <div class="will-appear" style="max-width:760px;">
+      <p style="font-size:9px;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:var(--fg-mid);margin-bottom:20px;">Season One &nbsp;·&nbsp; In Production</p>
+      <h2 style="font-family:var(--font-serif);font-size:clamp(30px,4.5vw,56px);font-weight:400;line-height:1.08;letter-spacing:-0.02em;margin-bottom:24px;">The first conversations are being recorded now.</h2>
+      <p style="font-size:14px;font-weight:300;line-height:1.75;color:var(--fg-mid);margin-bottom:28px;">Over The Table sits down with the young people building Detroit's near future: founders, artists, musicians and organizers, talking about what it actually takes. Know someone who belongs at the table?</p>
+      <a href="contact.html" style="font-size:10px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;border-bottom:1px solid var(--fg);padding-bottom:3px;">Nominate a guest</a>
     </div>
-
-    <div class="grid-4">
-
-      <a href="#" class="pod-card will-appear">
-        <div class="pod-card-art">
-          <img src="assets/myles_cover.jpg" alt="Myles Davis  -  Episode 1">
-        </div>
-        <p class="pod-card-ep">Episode 01</p>
-        <h3 class="pod-card-title">The Long Game</h3>
-        <p class="pod-card-guest">Myles Davis &nbsp;·&nbsp; Entrepreneur</p>
-      </a>
-
-      <a href="#" class="pod-card will-appear d1">
-        <div class="pod-card-art">
-          <img src="assets/jaylin_cover.jpg" alt="Jaylin Burnett  -  Episode 2">
-        </div>
-        <p class="pod-card-ep">Episode 02</p>
-        <h3 class="pod-card-title">A World With My Vision</h3>
-        <p class="pod-card-guest">Jaylin Burnett &nbsp;·&nbsp; Filmmaker</p>
-      </a>
-
-      <a href="#" class="pod-card will-appear d2">
-        <div class="pod-card-art">
-          <img src="assets/javontae_cover.jpg" alt="Javontae Anderson  -  Episode 3">
-        </div>
-        <p class="pod-card-ep">Episode 03</p>
-        <h3 class="pod-card-title">Two Lanes, One Vision</h3>
-        <p class="pod-card-guest">Javontae Anderson &nbsp;·&nbsp; Founder</p>
-      </a>
-
-      <div class="pod-card will-appear d3" style="opacity:0.35;pointer-events:none;">
-        <div class="pod-card-art ph" style="display:flex;align-items:center;justify-content:center;">
-          <span style="font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--fg-mid);">Coming Soon</span>
-        </div>
-        <p class="pod-card-ep">Episode 04</p>
-        <h3 class="pod-card-title">Untitled</h3>
-        <p class="pod-card-guest">Next Guest TBA</p>
-      </div>
-
-    </div>
-
-    <!-- LATEST FULL EPISODE FEATURE -->
-    <div style="margin-top:80px;padding-top:64px;border-top:0.5px solid var(--fg-dim);" class="will-appear">
-      <p style="font-size:9px;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:var(--fg-mid);margin-bottom:20px;">Latest Episode</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
-        <div>
-          <div style="aspect-ratio:1;background:#111;overflow:hidden;margin-bottom:0;">
-            <img src="assets/myles_cover.jpg" alt="Myles Davis" style="width:100%;height:100%;object-fit:cover;">
-          </div>
-        </div>
-        <div style="padding-top:8px;">
-          <p style="font-size:9px;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:var(--fg-mid);margin-bottom:20px;">Ep. 01 &nbsp;·&nbsp; Entrepreneurs</p>
-          <h2 style="font-family:var(--font-serif);font-size:clamp(28px,4vw,52px);font-weight:400;line-height:1.1;letter-spacing:-0.02em;margin-bottom:24px;">"The end goal is freedom, prosperity, and earning a place on the Forbes list."</h2>
-          <div style="width:40px;height:0.5px;background:var(--fg-dim);margin-bottom:24px;"></div>
-          <p style="font-size:13px;font-weight:300;line-height:1.7;color:var(--fg-mid);margin-bottom:32px;">Myles Davis sat down over the table to talk about walking away from basketball at 16, building Davis Enterprise, studying the markets through 4D Traders Institute, and why he's playing the long game while everyone else is chasing quick wins.</p>
-          <a href="#" style="font-size:10px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;border-bottom:1px solid var(--fg);padding-bottom:3px;">Listen Now</a>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -207,23 +174,23 @@
       <p class="footer-col-title">Navigate</p>
       <ul class="footer-links">
         <li><a href="features.html">Features</a></li>
-        <li><a href="articles.html">Articles</a>
-      <a href="builders-board.html">Builders Board</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="builders-board.html">Builders Board</a></li>
         <li><a href="over-the-table.html">Over The Table</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Nominate</a></li>
       </ul>
     </div>
     <div>
-      <p class="footer-col-title">Listen On</p>
+      <p class="footer-col-title">Follow</p>
       <ul class="footer-links">
-        <li><a href="#">Apple Podcasts</a></li>
-        <li><a href="#">Spotify</a></li>
-        <li><a href="#">YouTube</a></li>
+        <li><a href="https://www.instagram.com/anfmagazine/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.tiktok.com/@anfmagazine" target="_blank" rel="noopener">TikTok</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
+    <p class="footer-copy footer-social"><a href="https://www.instagram.com/anfmagazine/" target="_blank" rel="noopener">Instagram</a> &nbsp;·&nbsp; <a href="https://www.tiktok.com/@anfmagazine" target="_blank" rel="noopener">TikTok</a></p>
     <p class="footer-copy">&copy; 2026 A Near Future. All rights reserved.</p>
     <p class="footer-copy">Detroit, Michigan</p>
   </div>
@@ -249,5 +216,6 @@
 
 <script src="js/main.js"></script>
 <script src="js/newsletter.js" defer></script>
+<script>if (location.search.indexOf('joined=1') > -1) { var j = document.querySelector('.ott-joined'); if (j) j.style.display = 'block'; }</script>
 </body>
 </html>
