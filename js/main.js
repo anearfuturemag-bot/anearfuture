@@ -85,7 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!container) return;
 
         container.querySelectorAll('[data-cat]').forEach(item => {
-          if (cat === 'all' || item.dataset.cat === cat) {
+          const cats = (item.dataset.cat || '').split(/\s+/);
+          if (cat === 'all' || cats.includes(cat)) {
             item.style.display = '';
           } else {
             item.style.display = 'none';
@@ -94,6 +95,17 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
+
+  // Open a category from the URL hash (e.g. features.html#music)
+  const hashCat = decodeURIComponent((location.hash || '').slice(1)).toLowerCase();
+  if (hashCat) {
+    const tab = document.querySelector('.cat-tab[data-cat="' + hashCat + '"]');
+    if (tab) {
+      tab.click();
+      const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 64;
+      window.scrollTo({ top: tab.getBoundingClientRect().top + window.scrollY - navH - 24 });
+    }
+  }
 
   // ── SMOOTH SCROLL FOR ANCHOR LINKS ───────
   document.querySelectorAll('a[href^="#"]').forEach(a => {
