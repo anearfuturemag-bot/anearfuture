@@ -1056,3 +1056,14 @@ html.anf-unlocked .anf-gate        { display: none  !important; }
 .anf-follow-partner { margin-top: 28px; font-size: 12px; font-weight: 300; color: var(--fg-mid); }
 .anf-follow-partner a { color: var(--fg); border-bottom: 0.5px solid var(--fg-mid); padding-bottom: 2px; }
 .anf-follow-partner a:hover { border-color: var(--fg); }
+
+/* ── FEATURE EXTRAS: Blueprint number, gallery, credits ── */
+.blueprint-no { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg); border: 0.5px solid rgba(245,243,238,0.4); padding: 7px 12px; margin-bottom: 18px; }
+.feature-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 56px 0; }
+.feature-gallery figure { margin: 0; }
+.feature-gallery figure.wide { grid-column: 1 / -1; }
+.feature-gallery img { width: 100%; height: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; background: #111; }
+.feature-gallery figure.wide img { aspect-ratio: 16 / 10; }
+.feature-gallery figcaption { font-size: 11px; font-weight: 300; line-height: 1.5; color: var(--fg-mid); margin-top: 8px; }
+.feature-credits { font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--fg-mid); margin-top: 64px; }
+@media (max-width: 600px) { .feature-gallery { grid-template-columns: 1fr; } }
