@@ -445,6 +445,11 @@
   <meta name="twitter:image" content="https://anearfuture.org/assets/og-default.jpg">
 </head>
 <body>
+<!-- Netlify Forms detection: new-post alerts (do not remove) -->
+<form name="board-new-post" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="text" name="author"><input type="text" name="category"><textarea name="post"></textarea><input type="text" name="review"><input type="text" name="bot-field">
+</form>
+
 
 <nav class="site-nav">
   <div class="nav-inner">
@@ -856,6 +861,20 @@ document.getElementById('submitPost').addEventListener('click', function() {
   if (answeringTopic && currentTopic) postData.topic = currentTopic.id;
 
   db.collection('posts').add(postData).then(() => {
+    // Email alert to Donald through Netlify Forms (no extra services)
+    try {
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          'form-name': 'board-new-post',
+          author: postData.authorName + (postData.authorBuilding ? ' (' + postData.authorBuilding + ')' : ''),
+          category: catLabel[postData.category] || postData.category,
+          post: postData.content.slice(0, 800),
+          review: 'https://anearfuture.org/board-admin.html'
+        }).toString()
+      }).catch(() => {});
+    } catch (e) {}
     closePostModalFn();
     this.disabled = false;
     this.textContent = 'Post Thread';
