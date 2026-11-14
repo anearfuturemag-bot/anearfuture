@@ -1052,3 +1052,7 @@ html.anf-unlocked .anf-gate        { display: none  !important; }
 .anf-follow-links a:hover { border-color: var(--fg); background: rgba(245,243,238,0.06); }
 .footer-social a { color: var(--fg-mid); transition: color 0.2s; }
 .footer-social a:hover { color: var(--fg); }
+
+.anf-follow-partner { margin-top: 28px; font-size: 12px; font-weight: 300; color: var(--fg-mid); }
+.anf-follow-partner a { color: var(--fg); border-bottom: 0.5px solid var(--fg-mid); padding-bottom: 2px; }
+.anf-follow-partner a:hover { border-color: var(--fg); }
