@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Board Admin · A Near Future</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#080808">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    body { background: #080808; }
+    .adm { max-width: 760px; margin: 0 auto; padding: 32px 18px 96px; }
+    .adm-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; gap: 12px; }
+    .adm-top img { height: 22px; width: auto; }
+    .adm h1 { font-family: var(--font-serif); font-size: 34px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 6px; }
+    .adm-sub { font-size: 13px; color: var(--fg-mid); font-weight: 300; margin-bottom: 28px; }
+    .adm-sec { border-top: 0.5px solid var(--fg-dim); padding-top: 24px; margin-top: 32px; }
+    .adm-h { font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-mid); margin-bottom: 16px; display: flex; justify-content: space-between; }
+    .adm-card { border: 0.5px solid var(--fg-dim); padding: 18px; margin-bottom: 12px; background: var(--fg-faint); }
+    .adm-meta { font-size: 11px; color: var(--fg-mid); margin-bottom: 8px; letter-spacing: 0.04em; }
+    .adm-body { font-size: 15px; line-height: 1.6; white-space: pre-wrap; word-break: break-word; margin-bottom: 14px; }
+    .adm-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn { font-family: var(--font-sans); font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; border: 0.5px solid var(--fg-dim); background: transparent; color: var(--fg); padding: 14px 18px; cursor: pointer; flex: 1 1 auto; min-height: 48px; }
+    .btn.ok { background: var(--fg); color: #080808; border-color: var(--fg); }
+    .btn.bad { color: #e07a6a; border-color: rgba(224,122,106,0.5); }
+    .btn:disabled { opacity: 0.4; }
+    .adm input, .adm textarea { width: 100%; background: transparent; border: 0.5px solid rgba(245,243,238,0.25); color: var(--fg); padding: 12px 14px; font-family: var(--font-sans); font-size: 15px; margin-bottom: 10px; }
+    .adm textarea { min-height: 80px; resize: vertical; }
+    .empty { font-size: 13px; color: var(--fg-mid); font-weight: 300; padding: 6px 0 4px; }
+    .msg { font-size: 12px; color: var(--fg-mid); margin-top: 8px; min-height: 16px; }
+    .stats { display: flex; gap: 24px; margin-bottom: 8px; }
+    .stat b { font-family: var(--font-serif); font-size: 28px; display: block; }
+    .stat span { font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-mid); }
+    #signedIn { display: none; }
+  </style>
+</head>
+<body>
+<div class="adm">
+  <div class="adm-top">
+    <a href="builders-board.html"><img src="assets/anf_wordmark.png" alt="A Near Future"></a>
+    <button class="btn" id="signOutBtn" style="flex:0 0 auto;display:none;">Sign out</button>
+  </div>
+  <h1>Board Admin.</h1>
+  <p class="adm-sub" id="whoami">Sign in with the ANF admin Google account to moderate the Builders Board.</p>
+
+  <div id="signedOut">
+    <button class="btn ok" id="signInBtn" style="width:100%;">Sign in with Google</button>
+    <p class="msg" id="signInMsg"></p>
+  </div>
+
+  <div id="signedIn">
+    <div class="stats">
+      <div class="stat"><b id="statPending">0</b><span>Waiting</span></div>
+      <div class="stat"><b id="statReports">0</b><span>Reports</span></div>
+      <div class="stat"><b id="statLive">0</b><span>Live threads</span></div>
+    </div>
+
+    <div class="adm-sec">
+      <p class="adm-h"><span>Reports</span></p>
+      <div id="reportList"><p class="empty">Loading...</p></div>
+    </div>
+
+    <div class="adm-sec">
+      <p class="adm-h"><span>Waiting for approval</span></p>
+      <div id="pendingList"><p class="empty">Loading...</p></div>
+    </div>
+
+    <div class="adm-sec">
+      <p class="adm-h"><span>Topic of the week</span></p>
+      <input id="topicQ" placeholder="This week's question" maxlength="160">
+      <textarea id="topicIntro" placeholder="One or two lines of context (optional)" maxlength="400"></textarea>
+      <div class="adm-row">
+        <button class="btn ok" id="saveTopic">Publish topic</button>
+        <button class="btn" id="hideTopic">Hide topic</button>
+      </div>
+      <p class="msg" id="topicMsg"></p>
+    </div>
+
+    <div class="adm-sec">
+      <p class="adm-h"><span>Recent comments</span></p>
+      <div id="commentList"><p class="empty">Loading...</p></div>
+    </div>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyCe6KldiOg2B4LZJNb_wd0g4eC3cJnDiGs",
+  authDomain: "anearfuture-bb89b.firebaseapp.com",
+  projectId: "anearfuture-bb89b",
+  storageBucket: "anearfuture-bb89b.firebasestorage.app",
+  messagingSenderId: "511054412418",
+  appId: "1:511054412418:web:9650b5c837aeac0320129b"
+};
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
+const FV = firebase.firestore.FieldValue;
+const $ = id => document.getElementById(id);
+const esc = s => String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const when = ts => ts && ts.toDate ? ts.toDate().toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }) : '';
+const catLabel = { help: 'Ask for Help', win: 'Share a Win', looking: 'Looking For', thought: 'On My Mind' };
+
+// ── Sign in ──
+$('signInBtn').onclick = () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  auth.signInWithPopup(provider).catch(err => {
+    if (err && (err.code === 'auth/popup-blocked' || err.code === 'auth/operation-not-supported-in-this-environment')) {
+      auth.signInWithRedirect(provider);
+    } else {
+      $('signInMsg').textContent = 'Sign-in failed: ' + (err && err.code ? err.code : 'unknown error');
+    }
+  });
+};
+$('signOutBtn').onclick = () => auth.signOut();
+auth.getRedirectResult().catch(() => {});
+
+auth.onAuthStateChanged(user => {
+  if (!user) {
+    $('signedOut').style.display = 'block';
+    $('signedIn').style.display = 'none';
+    $('signOutBtn').style.display = 'none';
+    $('whoami').textContent = 'Sign in with the ANF admin Google account to moderate the Builders Board.';
+    return;
+  }
+  $('signedOut').style.display = 'none';
+  $('signOutBtn').style.display = 'block';
+  $('whoami').textContent = 'Signed in as ' + user.email + '.';
+  loadAll();
+});
+
+function denied(el, err) {
+  el.innerHTML = '<p class="empty">' + (err && err.code === 'permission-denied'
+    ? 'This account is not an admin, or the new Firestore rules are not published yet.'
+    : 'Could not load. ' + esc(err && err.code)) + '</p>';
+}
+
+function loadAll() {
+  $('signedIn').style.display = 'block';
+  loadPending(); loadReports(); loadTopic(); loadComments(); recountComments();
+}
+
+// ── Pending posts ──
+let pendingUnsub = null;
+function loadPending() {
+  if (pendingUnsub) pendingUnsub();
+  pendingUnsub = db.collection('posts').where('approved', '==', false).orderBy('timestamp', 'desc').limit(50)
+    .onSnapshot(snap => {
+      $('statPending').textContent = snap.size;
+      if (snap.empty) { $('pendingList').innerHTML = '<p class="empty">Nothing waiting. You are all caught up.</p>'; return; }
+      $('pendingList').innerHTML = snap.docs.map(d => {
+        const p = d.data();
+        return `<div class="adm-card" id="p-${d.id}">
+          <p class="adm-meta">${esc(p.authorName)}${p.authorBuilding ? ' · ' + esc(p.authorBuilding) : ''}${p.authorCity ? ' · ' + esc(p.authorCity) : ''} · ${esc(catLabel[p.category] || p.category)} · ${when(p.timestamp)}${p.topic ? ' · Topic of the week' : ''}</p>
+          <p class="adm-body">${esc(p.content)}</p>
+          <div class="adm-row">
+            <button class="btn ok" onclick="approve('${d.id}', this)">Approve</button>
+            <button class="btn bad" onclick="rejectPost('${d.id}', this)">Reject</button>
+          </div></div>`;
+      }).join('');
+    }, err => denied($('pendingList'), err));
+  db.collection('posts').where('approved', '==', true).get().then(s => $('statLive').textContent = s.size).catch(() => {});
+}
+function approve(id, btn) {
+  btn.disabled = true;
+  db.collection('posts').doc(id).update({ approved: true, approvedAt: FV.serverTimestamp() })
+    .catch(e => { btn.disabled = false; alert('Could not approve: ' + e.code); });
+}
+function rejectPost(id, btn) {
+  if (!confirm('Delete this post for good? This cannot be undone.')) return;
+  btn.disabled = true;
+  db.collection('posts').doc(id).delete().catch(e => { btn.disabled = false; alert('Could not delete: ' + e.code); });
+}
+
+// ── Reports ──
+function loadReports() {
+  db.collection('reports').orderBy('timestamp', 'desc').limit(30).onSnapshot(async snap => {
+    $('statReports').textContent = snap.size;
+    if (snap.empty) { $('reportList').innerHTML = '<p class="empty">No reports.</p>'; return; }
+    const cards = [];
+    for (const d of snap.docs) {
+      const r = d.data();
+      let text = '(already removed)';
+      try {
+        const ref = r.type === 'comment' && r.commentId
+          ? db.collection('posts').doc(r.postId).collection('comments').doc(r.commentId)
+          : db.collection('posts').doc(r.postId);
+        const doc = await ref.get();
+        if (doc.exists) text = (doc.data().authorName || '') + ': ' + (doc.data().content || '');
+      } catch (e) {}
+      cards.push(`<div class="adm-card">
+        <p class="adm-meta">Reported ${esc(r.type)} · ${when(r.timestamp)}${r.reason ? ' · "' + esc(r.reason) + '"' : ''}</p>
+        <p class="adm-body">${esc(text)}</p>
+        <div class="adm-row">
+          <button class="btn bad" onclick="removeReported('${d.id}','${esc(r.postId)}','${esc(r.commentId || '')}', this)">Remove ${esc(r.type)}</button>
+          <button class="btn" onclick="dismissReport('${d.id}', this)">Keep it, dismiss</button>
+        </div></div>`);
+    }
+    $('reportList').innerHTML = cards.join('');
+  }, err => denied($('reportList'), err));
+}
+function dismissReport(id, btn) { btn.disabled = true; db.collection('reports').doc(id).delete(); }
+async function removeReported(reportId, postId, commentId, btn) {
+  if (!confirm('Remove this ' + (commentId ? 'comment' : 'post') + ' for good?')) return;
+  btn.disabled = true;
+  try {
+    if (commentId) await deleteComment(postId, commentId);
+    else await db.collection('posts').doc(postId).delete();
+    await db.collection('reports').doc(reportId).delete();
+  } catch (e) { btn.disabled = false; alert('Could not remove: ' + e.code); }
+}
+
+// ── Topic of the week ──
+function loadTopic() {
+  db.collection('config').doc('weeklyTopic').get().then(doc => {
+    if (doc.exists) { $('topicQ').value = doc.data().question || ''; $('topicIntro').value = doc.data().intro || ''; }
+  }).catch(() => {});
+}
+$('saveTopic').onclick = () => {
+  const q = $('topicQ').value.trim();
+  if (!q) { $('topicQ').focus(); return; }
+  const id = new Date().toISOString().slice(0, 10);
+  db.collection('config').doc('weeklyTopic').set({ id, question: q, intro: $('topicIntro').value.trim(), active: true, updatedAt: FV.serverTimestamp() })
+    .then(() => $('topicMsg').textContent = 'Published. It is now pinned at the top of the board.')
+    .catch(e => $('topicMsg').textContent = 'Could not publish: ' + e.code);
+};
+$('hideTopic').onclick = () => {
+  db.collection('config').doc('weeklyTopic').set({ active: false }, { merge: true })
+    .then(() => $('topicMsg').textContent = 'Hidden from the board.')
+    .catch(e => $('topicMsg').textContent = 'Could not hide: ' + e.code);
+};
+
+// ── Recent comments (from the 20 newest live threads) ──
+async function loadComments() {
+  try {
+    const posts = await db.collection('posts').where('approved', '==', true).orderBy('timestamp', 'desc').limit(20).get();
+    const all = [];
+    for (const p of posts.docs) {
+      const cs = await p.ref.collection('comments').orderBy('timestamp', 'desc').limit(10).get();
+      cs.forEach(c => all.push({ postId: p.id, id: c.id, thread: p.data().content, ...c.data() }));
+    }
+    all.sort((a, b) => (b.timestamp && b.timestamp.toMillis ? b.timestamp.toMillis() : 0) - (a.timestamp && a.timestamp.toMillis ? a.timestamp.toMillis() : 0));
+    const list = all.slice(0, 25);
+    $('commentList').innerHTML = list.length ? list.map(c => `<div class="adm-card" id="c-${c.id}">
+      <p class="adm-meta">${esc(c.authorName)} · ${when(c.timestamp)} · on "${esc(String(c.thread || '').slice(0, 60))}"</p>
+      <p class="adm-body">${esc(c.content)}</p>
+      <div class="adm-row"><button class="btn bad" onclick="removeComment('${c.postId}','${c.id}', this)">Delete comment</button></div>
+    </div>`).join('') : '<p class="empty">No comments yet.</p>';
+  } catch (e) { denied($('commentList'), e); }
+}
+async function deleteComment(postId, commentId) {
+  await db.collection('posts').doc(postId).collection('comments').doc(commentId).delete();
+  await db.collection('posts').doc(postId).update({ commentCount: FV.increment(-1) }).catch(() => {});
+}
+function removeComment(postId, id, btn) {
+  if (!confirm('Delete this comment for good?')) return;
+  btn.disabled = true;
+  deleteComment(postId, id).then(() => { const el = $('c-' + id); if (el) el.remove(); })
+    .catch(e => { btn.disabled = false; alert('Could not delete: ' + e.code); });
+}
+
+// ── Keep comment counts accurate on live threads ──
+async function recountComments() {
+  try {
+    const posts = await db.collection('posts').where('approved', '==', true).get();
+    for (const p of posts.docs) {
+      const n = (await p.ref.collection('comments').get()).size;
+      if ((p.data().commentCount || 0) !== n) await p.ref.update({ commentCount: n });
+    }
+  } catch (e) {}
+}
+</script>
+</body>
+</html>

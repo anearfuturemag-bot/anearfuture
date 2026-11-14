@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Partner with A Near Future, the Detroit magazine for young builders. Presented series, events and features that put your name next to Detroit's next generation.">
+  <title>Partner With Us · A Near Future</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/newsletter.css">
+  <style>
+    .pt-hero { padding: calc(var(--nav-h) + 80px) var(--pad) 72px; border-bottom: 0.5px solid var(--fg-dim); }
+    .pt-inner { max-width: var(--max-w); margin: 0 auto; }
+    .pt-eyebrow { font-size: 9px; font-weight: 600; letter-spacing: 0.35em; text-transform: uppercase; color: var(--fg-mid); margin-bottom: 20px; }
+    .pt-title { font-family: var(--font-serif); font-size: clamp(44px, 8vw, 104px); font-weight: 700; line-height: 0.92; letter-spacing: -0.03em; margin-bottom: 32px; }
+    .pt-lead { font-size: 16px; font-weight: 300; line-height: 1.75; color: var(--fg-mid); max-width: 640px; }
+    .pt-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-bottom: 0.5px solid var(--fg-dim); }
+    .pt-stat { padding: 40px var(--pad); border-right: 0.5px solid var(--fg-dim); }
+    .pt-stat:last-child { border-right: none; }
+    .pt-stat b { display: block; font-family: var(--font-serif); font-size: clamp(36px, 5vw, 64px); font-weight: 700; letter-spacing: -0.03em; line-height: 1; margin-bottom: 10px; }
+    .pt-stat span { font-size: 9px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-mid); }
+    .pt-sec { padding: 80px var(--pad); border-bottom: 0.5px solid var(--fg-dim); }
+    .pt-h { font-family: var(--font-serif); font-size: clamp(28px, 4vw, 48px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 40px; }
+    .pt-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--fg-dim); border: 0.5px solid var(--fg-dim); }
+    .pt-card { background: #080808; padding: 36px 32px; }
+    .pt-card h3 { font-family: var(--font-serif); font-size: 24px; font-weight: 700; margin-bottom: 14px; }
+    .pt-card p { font-size: 14px; font-weight: 300; line-height: 1.7; color: var(--fg-mid); }
+    .pt-list { list-style: none; columns: 2; column-gap: 48px; }
+    .pt-list li { break-inside: avoid; padding: 14px 0; border-bottom: 0.5px solid var(--fg-dim); }
+    .pt-list a { font-size: 14px; color: var(--fg); }
+    .pt-list a:hover { color: var(--fg-mid); }
+    .pt-note { font-family: var(--font-serif); font-style: italic; font-size: clamp(20px, 2.6vw, 28px); line-height: 1.4; max-width: 820px; }
+    .pt-form { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 760px; }
+    .pt-form .full { grid-column: 1 / -1; }
+    .pt-form input, .pt-form select, .pt-form textarea { width: 100%; background: transparent; border: 0.5px solid rgba(245,243,238,0.25); color: var(--fg); padding: 14px 16px; font-family: var(--font-sans); font-size: 14px; }
+    .pt-form select option { color: #080808; }
+    .pt-form textarea { min-height: 130px; resize: vertical; }
+    .pt-form button { background: var(--fg); color: #080808; border: none; padding: 16px 26px; font-size: 10px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; cursor: pointer; font-family: var(--font-sans); justify-self: start; }
+    .pt-sent { display: none; font-size: 14px; color: var(--fg); margin-bottom: 24px; }
+    @media (max-width: 768px) {
+      .pt-stats { grid-template-columns: 1fr 1fr; }
+      .pt-stat:nth-child(2) { border-right: none; }
+      .pt-stat:nth-child(-n+2) { border-bottom: 0.5px solid var(--fg-dim); }
+      .pt-grid { grid-template-columns: 1fr; }
+      .pt-list { columns: 1; }
+      .pt-form { grid-template-columns: 1fr; }
+    }
+  </style>
+  <link rel="canonical" href="https://anearfuture.org/partners.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#080808">
+  <meta property="og:site_name" content="A Near Future">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Partner With A Near Future">
+  <meta property="og:description" content="Put your name next to Detroit's next generation of builders. Presented series, events and features.">
+  <meta property="og:url" content="https://anearfuture.org/partners.html">
+  <meta property="og:image" content="https://anearfuture.org/assets/og-default.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Partner With A Near Future">
+  <meta name="twitter:description" content="Put your name next to Detroit's next generation of builders. Presented series, events and features.">
+  <meta name="twitter:image" content="https://anearfuture.org/assets/og-default.jpg">
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════ -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="assets/anf_wordmark.png" alt="A Near Future"></a>
+    <div class="nav-links">
+      <a href="features.html">Features</a>
+      <a href="articles.html">Articles</a>
+      <a href="builders-board.html">Builders Board</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="nav-cta">Nominate</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-drawer">
+  <a href="features.html">Features</a>
+  <a href="articles.html">Articles</a>
+  <a href="builders-board.html">Builders Board</a>
+  <a href="over-the-table.html">Over The Table</a>
+  <a href="about.html">About</a>
+  <a href="partners.html">Partner With Us</a>
+  <a href="contact.html">Nominate</a>
+</div>
+
+<!-- ══ PARTNER HERO ══════════════════════════ -->
+<section class="pt-hero">
+  <div class="pt-inner">
+    <p class="pt-eyebrow will-appear">A Near Future &nbsp;·&nbsp; Partnerships</p>
+    <h1 class="pt-title will-appear d1">Build With<br>Us.</h1>
+    <p class="pt-lead will-appear d2">A Near Future is the Detroit magazine for young builders: the entrepreneurs, creatives, artists and organizers between 16 and 30 who are shaping what this city becomes. Partners put their name next to that story, and help us tell more of it.</p>
+  </div>
+</section>
+
+<div class="pt-stats">
+  <div class="pt-stat will-appear"><b>155+</b><span>Stories published</span></div>
+  <div class="pt-stat will-appear d1"><b>1,000+</b><span>Readers a week</span></div>
+  <div class="pt-stat will-appear d2"><b>2,900</b><span>Avg views per reel</span></div>
+  <div class="pt-stat will-appear d3"><b>25</b><span>Detroit features</span></div>
+</div>
+
+<section class="pt-sec">
+  <div class="pt-inner">
+    <h2 class="pt-h will-appear">Ways to partner.</h2>
+    <div class="pt-grid will-appear">
+      <div class="pt-card"><h3>Presented series</h3><p>Your name on an eight-week ANF series, like The Blueprint or Opportunity Week, across Instagram, TikTok, our site and newsletter.</p></div>
+      <div class="pt-card"><h3>Events</h3><p>Present a Builders Board meetup or an ANF live night. Your space or support, our community in the room, and a recap that lives on.</p></div>
+      <div class="pt-card"><h3>Features</h3><p>Present a single feature on a young Detroit builder, carousel and article, with your name on both.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pt-sec">
+  <div class="pt-inner">
+    <h2 class="pt-h will-appear">Who we have covered.</h2>
+    <ul class="pt-list will-appear">
+        <li><a href="articles/michigan-central-creative-residency-2026.html">Detroit Is Paying Artists $30,000 to Build (Michigan Central)</a></li>
+        <li><a href="articles/michigan-central-art-health-fellowship-2026.html">Detroit Is Putting Artists Inside Its Health System (Michigan Central)</a></li>
+        <li><a href="articles/newlab-michigan-central-2026.html">100 Startups Now Build at Michigan Central (Newlab)</a></li>
+        <li><a href="articles/detroit-small-business-technology-fund.html">$1,000, 140 Detroit Shops, and Why It Matters (Rocket Community Fund)</a></li>
+        <li><a href="articles/detroit-elevate-2026-cohort.html">Detroit Elevate 2026 (TechTown Detroit)</a></li>
+        <li><a href="articles/black-tech-saturdays-turnage-2026.html">Five People in a Room Became a Blueprint (Black Tech Saturdays)</a></li>
+        <li><a href="articles/skillman-visionary-awards-2026.html">Ten Detroit Education Leaders Just Got $50,000 (Skillman Foundation)</a></li>
+        <li><a href="articles/dia-reimagine-galleries-2026.html">The DIA Is Rehanging Modern Art (Detroit Institute of Arts)</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="pt-sec">
+  <div class="pt-inner">
+    <p class="pt-note will-appear">"Partners present our work. They never pick who we feature or what we say. That independence is the reason the work is worth presenting."</p>
+  </div>
+</section>
+
+<section class="pt-sec" id="inquire">
+  <div class="pt-inner">
+    <h2 class="pt-h will-appear">Start a conversation.</h2>
+    <p class="pt-sent" id="ptSent">Thank you. Donald will get back to you within a few days.</p>
+    <form class="pt-form" name="partner-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/partners.html?sent=1#inquire">
+      <input type="hidden" name="form-name" value="partner-inquiry">
+      <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="text" name="organization" placeholder="Organization" required>
+      <input type="email" name="email" placeholder="Email" required class="full">
+      <select name="interest" class="full" required>
+        <option value="">What are you interested in?</option>
+        <option>Presented series</option>
+        <option>Event partnership</option>
+        <option>Feature sponsorship</option>
+        <option>Something else</option>
+      </select>
+      <textarea name="message" placeholder="Tell us a little about what you have in mind" class="full"></textarea>
+      <button type="submit">Send &rarr;</button>
+    </form>
+  </div>
+</section>
+
+<script>if (location.search.indexOf('sent=1') > -1) { document.getElementById('ptSent').style.display = 'block'; }</script>
+
+<!-- ══ FOOTER ════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-logo"><img src="assets/anf_wordmark.png" alt="A Near Future"></div>
+      <p class="footer-tagline">The next generation of leaders, builders, and visionaries.</p>
+    </div>
+    <div>
+      <p class="footer-col-title">Navigate</p>
+      <ul class="footer-links">
+        <li><a href="features.html">Features</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="builders-board.html">Builders Board</a></li>
+        <li><a href="over-the-table.html">Over The Table</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="partners.html">Partner With Us</a></li>
+        <li><a href="contact.html">Nominate</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Categories</p>
+      <ul class="footer-links">
+        <li><a href="features.html#entrepreneurs">Entrepreneurs</a></li>
+        <li><a href="features.html#creatives">Creatives</a></li>
+        <li><a href="features.html#builders">Builders &amp; Founders</a></li>
+        <li><a href="features.html#community">Community</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy footer-social"><a href="https://www.instagram.com/anfmagazine/" target="_blank" rel="noopener">Instagram</a> &nbsp;·&nbsp; <a href="https://www.tiktok.com/@anfmagazine" target="_blank" rel="noopener">TikTok</a></p>
+    <p class="footer-copy">&copy; 2026 A Near Future. All rights reserved.</p>
+    <p class="footer-copy">Detroit, Michigan</p>
+  </div>
+</footer>
+
+
+<!-- ANF NEWSLETTER SIGNUP CARD -->
+<div class="anf-news-card" id="anf-news-card">
+  <button class="anf-news-close" id="anf-news-close" aria-label="Close">&times;</button>
+  <img class="anf-news-mark" src="assets/anf_logo_mark.png" alt="A Near Future">
+  <p class="anf-news-eyebrow">A Near Future</p>
+  <h2 class="anf-news-head">Join the list.</h2>
+  <p class="anf-news-sub">Monthly drops on the young builders, creatives, and founders shaping what's next. Free, no spam.</p>
+  <form class="anf-news-form" id="anf-news-form" name="newsletter-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="newsletter-signup">
+    <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+    <input type="email" class="anf-news-input" id="anf-news-email" name="email" placeholder="your@email.com" required autocomplete="email">
+    <button type="submit" class="anf-news-btn">Join &rarr;</button>
+  </form>
+  <p class="anf-news-error" id="anf-news-error"></p>
+  <p class="anf-news-success" id="anf-news-success">You're in. Check your inbox.</p>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/newsletter.js" defer></script>
+</body>
+</html>
