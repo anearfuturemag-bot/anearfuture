@@ -47,6 +47,14 @@
       .pt-list { columns: 1; }
       .pt-form { grid-template-columns: 1fr; }
     }
+    .pt-founder { display: grid; grid-template-columns: 5fr 7fr; gap: 64px; align-items: center; }
+    .pt-founder-img { aspect-ratio: 4 / 5; overflow: hidden; background: #111; }
+    .pt-founder-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
+    .pt-founder p.pt-body { font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--fg-mid); margin-bottom: 18px; max-width: 600px; }
+    .pt-founder blockquote { font-family: var(--font-serif); font-style: italic; font-size: clamp(20px, 2.4vw, 26px); line-height: 1.4; margin: 28px 0; padding-left: 24px; border-left: 1px solid var(--fg-dim); max-width: 600px; }
+    .pt-sign { font-family: var(--font-serif); font-style: italic; font-size: 18px; margin-bottom: 4px; }
+    .pt-role { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg-mid); }
+    @media (max-width: 768px) { .pt-founder { grid-template-columns: 1fr; gap: 32px; } }
   </style>
   <link rel="canonical" href="https://anearfuture.org/partners.html">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
@@ -106,6 +114,22 @@
   <div class="pt-stat will-appear d2"><b>2,900</b><span>Avg views per reel</span></div>
   <div class="pt-stat will-appear d3"><b>25</b><span>Detroit features</span></div>
 </div>
+
+<section class="pt-sec">
+  <div class="pt-inner pt-founder">
+    <div class="pt-founder-img will-appear"><img src="assets/donald_williams.jpg" alt="Donald Williams Jr., founder of A Near Future" loading="lazy"></div>
+    <div class="will-appear d1">
+      <p class="pt-eyebrow">The Founder</p>
+      <h2 class="pt-h" style="margin-bottom:24px;">Meet Donald.</h2>
+      <p class="pt-body">Donald Williams Jr. is 18, from Metro Detroit, and built A Near Future from the ground up: the magazine, the website, the Builders Board and more than 155 published stories, all while finishing early college.</p>
+      <p class="pt-body">He studies business administration with an accounting focus through Oakland Early College, where he serves as Vice President of Student Government and made the Dean's List. He was one of about 200 students chosen from more than 2,700 applicants for the Midnight Golf Program, and he has started several businesses of his own.</p>
+      <blockquote>"I built A Near Future because I wanted to see the people around me reflected in something that took them seriously."</blockquote>
+      <p class="pt-body">Partnering with ANF means backing a founder who builds the same way the people he covers do.</p>
+      <p class="pt-sign">Donald Williams Jr.</p>
+      <p class="pt-role">Founder &amp; Editor, A Near Future</p>
+    </div>
+  </div>
+</section>
 
 <section class="pt-sec">
   <div class="pt-inner">
